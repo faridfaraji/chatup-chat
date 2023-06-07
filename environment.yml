@@ -1,0 +1,24 @@
+name: chatup-chat
+channels:
+  - conda-forge
+dependencies:
+  - flask-restx
+  - flask=2.1.2
+  - gevent
+  - gunicorn
+  - isort
+  - langchain
+  - openai
+  - pip
+  - pytest
+  - python=3.10
+  - requests
+  - werkzeug=2.1.2
+  - click
+  - pip:
+      - pytest-cov
+      - gevent-websocket
+      - flask-socketio
+      - flask-cors
+      - tox-conda
+      - git+https://github.com/korbit-ai/python-config-probe.git
