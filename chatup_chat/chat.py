@@ -21,17 +21,17 @@ class ChatUpStreamHandler(StreamingStdOutCallbackHandler):
         emit("ai_response", token)
 
 
-def create_conversation_chain():
+def create_conversation_chain(shop):
     chat = ChatOpenAI(
         model_name="gpt-3.5-turbo",
         streaming=True,
         callbacks=[ChatUpStreamHandler()],
         temperature=0,
     )
-    template = """The following is a friendly conversation between a customer and an AI customer assistant. The AI is helpfull and descriptive. The AI should only talk about things relating to the products or the questions being asked. Respond with answeres as short as possible.
+    template = f""" {shop}
+    {{history}}
     Current conversation:
-    {history}
-    {input}
+    {{input}}
     AI Assistant:"""
 
     PROMPT = PromptTemplate(input_variables=["history", "input"], template=template)
@@ -44,7 +44,7 @@ conversations = {}
 
 @socketio.on("connect")
 def handle_connect():
-    conversations[request.sid] = {"chain": create_conversation_chain(), "first_message": True}
+    conversations[request.sid] = {"conversation_chain": None}
     print(f"New connection: {request.sid}")
 
 
@@ -62,17 +62,16 @@ def handle_user_message(data):
     shop_id = int(data["shop_id"])
     print(user_input)
     if request.sid in conversations:
-        first_message = conversations[request.sid]["first_message"]
-
-        if first_message:
-            conversations[request.sid]["first_message"] = False
-            business = db_client.get_shop_description_by_id(shop_id)
-            input = f"""Given the shop description: {business}\nHuman: {user_input}"""
+        conv_chain = conversations[request.sid]["conversation_chain"]
+        if conv_chain is None:
+            shop = db_client.get_shop_prompt(shop_id)[:3500]
+            conversations[request.sid]["conversation_chain"] = create_conversation_chain(shop)
+            input = f"""\nCustomer: {user_input}"""
             user_input = input
         else:
-            user_input = f"\tHuman: {user_input}"
+            user_input = f"\tCustomer: {user_input}"
 
-        conversations[request.sid]["chain"].predict(input=user_input)
+        conversations[request.sid]["conversation_chain"].predict(input=user_input)
     else:
         print(f"Error: No conversation found for {request.sid}")
 
