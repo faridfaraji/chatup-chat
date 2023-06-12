@@ -16,5 +16,5 @@ class DatabaseApiClient:
         response.raise_for_status()
         return response.json()
 
-    def get_shop_description_by_id(self, shop_id):
-        return self._make_request(requests.get, f"shops/{shop_id}")["description"]
+    def get_shop_prompt(self, shop_id):
+        return self._make_request(requests.get, f"shops/{shop_id}/prompt")["prompt"]
