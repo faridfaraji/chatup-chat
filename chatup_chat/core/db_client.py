@@ -1,4 +1,5 @@
 
+from typing import List
 import requests
 from chatup_chat.config import config
 
@@ -18,3 +19,9 @@ class DatabaseApiClient:
 
     def get_shop_prompt(self, shop_id):
         return self._make_request(requests.get, f"shops/{shop_id}/prompt")["prompt"]
+
+    def get_closest_shop_doc(self, embedding: List[float], shop_id: int):
+        data = {
+            "query_embedding": embedding
+        }
+        return self._make_request(requests.post, f"shops/{shop_id}/closest-doc", json=data)["document"][0]
