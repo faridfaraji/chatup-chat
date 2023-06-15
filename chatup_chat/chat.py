@@ -10,6 +10,8 @@ from langchain.memory import ConversationBufferMemory
 from langchain.prompts.prompt import PromptTemplate
 from typing import Any
 
+from chatup_chat.core.open_ai_client import get_user_query_embedding
+
 app = Flask(__name__)
 socketio = SocketIO(app, cors_allowed_origins="*")
 
@@ -21,17 +23,21 @@ class ChatUpStreamHandler(StreamingStdOutCallbackHandler):
         emit("ai_response", token)
 
 
-def create_conversation_chain(shop):
+def create_conversation_chain():
     chat = ChatOpenAI(
         model_name="gpt-3.5-turbo",
         streaming=True,
         callbacks=[ChatUpStreamHandler()],
         temperature=0,
+        max_tokens=400
     )
-    template = f""" {shop}
-    {{history}}
+    template = """The following is a friendly conversation between a human and an AI customer Assistant.
+    the context helps the AI to answer the customer's question. The AI is not talkative and provides specific answers.
+    If the AI does not know the answer to a question, it truthfully says it does not know and provides the
+    store contact info and asks them to contact them
+    {history}
     Current conversation:
-    {{input}}
+    {input}
     AI Assistant:"""
 
     PROMPT = PromptTemplate(input_variables=["history", "input"], template=template)
@@ -64,13 +70,11 @@ def handle_user_message(data):
     if request.sid in conversations:
         conv_chain = conversations[request.sid]["conversation_chain"]
         if conv_chain is None:
-            shop = db_client.get_shop_prompt(shop_id)[:3500]
-            conversations[request.sid]["conversation_chain"] = create_conversation_chain(shop)
-            input = f"""\nCustomer: {user_input}"""
-            user_input = input
-        else:
-            user_input = f"\tCustomer: {user_input}"
-
+            conversations[request.sid]["conversation_chain"] = create_conversation_chain()
+        query_embedding = get_user_query_embedding(user_input)
+        context = db_client.get_closest_shop_doc(query_embedding, shop_id)
+        input = f"""\nContext:{context}\nCustomer: {user_input}"""
+        user_input = input
         conversations[request.sid]["conversation_chain"].predict(input=user_input)
     else:
         print(f"Error: No conversation found for {request.sid}")
