@@ -29,6 +29,7 @@ def create_conversation_chain():
         streaming=True,
         callbacks=[ChatUpStreamHandler()],
         temperature=0,
+        max_tokens=400
     )
     template = """The following is a friendly conversation between a human and an AI customer Assistant.
     the context helps the AI to answer the customer's question. The AI is not talkative and provides specific answers.
