@@ -33,7 +33,7 @@ def create_conversation_chain():
     )
     template = """The following is a friendly conversation between a human and an AI customer Assistant.
     the context helps the AI to answer the customer's question. The AI is not talkative and provides specific answers.
-    If the AI does not know the answer to a question, it truthfully says it does not know and provides the
+    If the AI does not know the answer to a question based on the context provided, it truthfully says it does not know and provides the
     store contact info and asks them to contact them
     {history}
     Current conversation:
