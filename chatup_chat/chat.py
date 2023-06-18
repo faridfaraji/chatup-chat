@@ -28,13 +28,13 @@ def create_conversation_chain():
         model_name="gpt-3.5-turbo",
         streaming=True,
         callbacks=[ChatUpStreamHandler()],
-        temperature=0,
-        max_tokens=400
+        temperature=0
     )
     template = """The following is a friendly conversation between a human and an AI customer Assistant.
     the context helps the AI to answer the customer's question. The AI is not talkative and provides specific answers.
     If the AI does not know the answer to a question based on the context provided, it truthfully says it does not know and provides the
-    store contact info and asks them to contact them
+    store contact info and asks them to contact them. While the AI answers the customers questions based on the contexts provided 
+    the AI does not mention the word context or let the customer know where it is getting his knowledge from
     {history}
     Current conversation:
     {input}
