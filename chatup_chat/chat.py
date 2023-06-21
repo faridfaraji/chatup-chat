@@ -25,7 +25,7 @@ class ChatUpStreamHandler(StreamingStdOutCallbackHandler):
 
 def create_conversation_chain():
     chat = ChatOpenAI(
-        model_name="gpt-3.5-turbo",
+        model_name="gpt-3.5-turbo-16k",
         streaming=True,
         callbacks=[ChatUpStreamHandler()],
         temperature=0
