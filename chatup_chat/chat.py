@@ -36,12 +36,13 @@ def create_conversation_chain():
         temperature=0
     )
     template = """The following is a friendly conversation between a human and an AI customer Assistant.
-the context helps the AI to answer the customer's question. The AI is not talkative and provides specific answers.
+the context helps the AI to answer the customer's question. It is very important that the The AI is not talkative and provides short answers.
 If the AI does not know the answer to a question based on the context provided. it truthfully says it
 does not know and provides the store contact info and asks them to contact them. While the AI answers
 the customers questions based on the contexts provided the AI does not mention the word context or
 let the customer know where it is getting his knowledge from. The context provided does not necessarily
-relate to the question being asked if its not related refer them to the store contact info
+relate to the question being asked if its not related refer them to the store contact info. The AI
+only gives responses that satisfy the question and not extra unecessary information from the context or anywhere else
 {history}
 Current conversation:
 Customer: {input}
@@ -79,7 +80,7 @@ def handle_user_message(data):
             conversations[request.sid]["conversation_chain"] = create_conversation_chain()
         query_embedding = get_user_query_embedding(user_input)
         context = db_client.get_closest_shop_doc(query_embedding, shop_id)
-        input = f"""{user_input}\nContext:{context}"""
+        input = f"""{user_input}\nContext-Start\n================\n{context}\n===============\nContext-end"""
         user_input = input
         conversations[request.sid]["conversation_chain"].predict(input=user_input)
     else:
