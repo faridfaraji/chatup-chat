@@ -1,14 +1,16 @@
 import json
 
 from flask import Flask, request
+from langchain import OpenAI
 from chatup_chat.core.db_client import DatabaseApiClient
 from flask_socketio import SocketIO, emit
 from langchain.callbacks.streaming_stdout import StreamingStdOutCallbackHandler
 from langchain.chains import ConversationChain
 from langchain.chat_models import ChatOpenAI
-from langchain.memory import ConversationBufferMemory
+from langchain.memory import ConversationSummaryBufferMemory
 from langchain.prompts.prompt import PromptTemplate
 from typing import Any
+from langchain.chains.question_answering import load_qa_chain
 
 from chatup_chat.core.open_ai_client import get_user_query_embedding
 
@@ -23,29 +25,33 @@ class ChatUpStreamHandler(StreamingStdOutCallbackHandler):
         emit("ai_response", token)
 
 
+conversations = {}
+
+
 def create_conversation_chain():
     chat = ChatOpenAI(
-        model_name="gpt-3.5-turbo",
+        model_name="gpt-3.5-turbo-16k",
         streaming=True,
         callbacks=[ChatUpStreamHandler()],
         temperature=0
     )
     template = """The following is a friendly conversation between a human and an AI customer Assistant.
-    the context helps the AI to answer the customer's question. The AI is not talkative and provides specific answers.
-    If the AI does not know the answer to a question based on the context provided, it truthfully says it does not know and provides the
-    store contact info and asks them to contact them. While the AI answers the customers questions based on the contexts provided 
-    the AI does not mention the word context or let the customer know where it is getting his knowledge from
-    {history}
-    Current conversation:
-    {input}
-    AI Assistant:"""
+the context helps the AI to answer the customer's question. The AI is not talkative and provides specific answers.
+If the AI does not know the answer to a question based on the context provided. it truthfully says it
+does not know and provides the store contact info and asks them to contact them. While the AI answers
+the customers questions based on the contexts provided the AI does not mention the word context or
+let the customer know where it is getting his knowledge from. The context provided does not necessarily
+relate to the question being asked if its not related refer them to the store contact info
+{history}
+Current conversation:
+Customer: {input}
+AI Assistant:"""
 
     PROMPT = PromptTemplate(input_variables=["history", "input"], template=template)
-    memory = ConversationBufferMemory(input_key="input")
+    memory = ConversationSummaryBufferMemory(
+        llm=chat, input_key="input", max_token_limit=10000, human_prefix="Customer"
+    )
     return ConversationChain(prompt=PROMPT, llm=chat, verbose=True, memory=memory)
-
-
-conversations = {}
 
 
 @socketio.on("connect")
@@ -73,7 +79,7 @@ def handle_user_message(data):
             conversations[request.sid]["conversation_chain"] = create_conversation_chain()
         query_embedding = get_user_query_embedding(user_input)
         context = db_client.get_closest_shop_doc(query_embedding, shop_id)
-        input = f"""\nContext:{context}\nCustomer: {user_input}"""
+        input = f"""{user_input}\nContext:{context}"""
         user_input = input
         conversations[request.sid]["conversation_chain"].predict(input=user_input)
     else:
