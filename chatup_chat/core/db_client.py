@@ -27,5 +27,5 @@ class DatabaseApiClient:
         docs = self._make_request(requests.post, f"shops/{shop_id}/closest-doc", json=data)
         context_doc = ""
         for doc in docs[:5]:
-            context_doc += doc
+            context_doc += doc["document"]
         return context_doc
