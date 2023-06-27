@@ -24,7 +24,7 @@ class DatabaseApiClient:
         data = {
             "query_embedding": embedding
         }
-        docs = self._make_request(requests.post, f"shops/{shop_id}/closest-doc", json=data)["documents"]
+        docs = self._make_request(requests.post, f"shops/{shop_id}/closest-doc", json=data)
         context_doc = ""
         for doc in docs[:5]:
             context_doc += doc
