@@ -1,9 +1,9 @@
 from flask_socketio import Namespace, emit
-from chatup_chat.api.models.customer import Customer, Message
+from chatup_chat.api.models.customer import CustomerSchema, MessageSchema
 from chatup_chat.core.customers import initiate_conversation, respond_customer_message
 
-customer_schema = Customer()
-message_schema = Message()
+customer_schema = CustomerSchema()
+message_schema = MessageSchema()
 
 
 class Customer(Namespace):
