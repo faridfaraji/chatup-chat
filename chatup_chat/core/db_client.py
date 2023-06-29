@@ -1,5 +1,7 @@
 
+import asyncio
 from typing import List
+import aiohttp
 import requests
 from chatup_chat.config import config
 
@@ -17,6 +19,11 @@ class DatabaseApiClient:
         response.raise_for_status()
         return response.json()
 
+    async def _make_async_request(self, method, route, **kwargs):
+        async with aiohttp.ClientSession(self.db_base_url) as session:
+            async with getattr(session, method)(route, **kwargs):
+                pass
+
     def get_shop_prompt(self, shop_id):
         return self._make_request(requests.get, f"shops/{shop_id}/prompt")["prompt"]
 
@@ -29,3 +36,20 @@ class DatabaseApiClient:
         for doc in docs[:5]:
             context_doc += doc["document"]
         return context_doc
+
+    def add_message(self, message, conversation_id, message_type):
+        data = {
+            "message_type": message_type,
+            "message": message
+        }
+        asyncio.run(self._make_async_request("put", f"conversations/{conversation_id}/messages", json=data))
+
+    def get_conversation(self, conversation_id):
+        return self._make_request(self._make_request("post", f"conversations/{conversation_id}"))
+
+    def add_conversation(self, shop_id):
+        data = {
+            "shop_id": shop_id,
+            "messages": []
+        }
+        return self._make_request(self._make_request("post", "conversations", json=data))
