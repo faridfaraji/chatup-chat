@@ -4,6 +4,7 @@ from typing import List
 import aiohttp
 import requests
 from chatup_chat.config import config
+from funcy import print_durations
 
 
 class DatabaseApiClient:
@@ -20,16 +21,18 @@ class DatabaseApiClient:
         return response.json()
 
     async def _make_async_request(self, method, route, **kwargs):
-        async with aiohttp.ClientSession(self.db_base_url) as session:
-            async with getattr(session, method)(route, **kwargs):
+        async with aiohttp.ClientSession() as session:
+            async with getattr(session, method)(self._gen_url(route), **kwargs):
                 pass
 
     def get_shop_prompt(self, shop_id):
         return self._make_request(requests.get, f"shops/{shop_id}/prompt")["prompt"]
 
+    @print_durations
     def get_closest_shop_doc(self, embedding: List[float], shop_id: int):
         data = {
-            "query_embedding": embedding
+            "query_embedding": embedding,
+            "number_of_docs": 4
         }
         docs = self._make_request(requests.post, f"shops/{shop_id}/closest-doc", json=data)
         context_doc = ""
@@ -37,19 +40,19 @@ class DatabaseApiClient:
             context_doc += doc["document"]
         return context_doc
 
-    def add_message(self, message, conversation_id, message_type):
+    def add_message(self, conversation_id, message, message_type):
         data = {
             "message_type": message_type,
             "message": message
         }
-        asyncio.run(self._make_async_request("put", f"conversations/{conversation_id}/messages", json=data))
+        asyncio.run(self._make_async_request("post", f"conversations/{conversation_id}/messages", json=data))
 
     def get_conversation(self, conversation_id):
-        return self._make_request(self._make_request("post", f"conversations/{conversation_id}"))
+        return self._make_request(requests.get, f"conversations/{conversation_id}")
 
     def add_conversation(self, shop_id):
         data = {
             "shop_id": shop_id,
             "messages": []
         }
-        return self._make_request(self._make_request("post", "conversations", json=data))
+        return self._make_request(requests.post, "conversations", json=data)

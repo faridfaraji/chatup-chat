@@ -7,11 +7,11 @@ from langchain.memory import ConversationSummaryBufferMemory
 from chatup_chat.core.response_handler import ChatUpStreamHandler
 
 
-def create_conversation_chain():
+def create_conversation_chain(conversation_id):
     chat = ChatOpenAI(
         model_name="gpt-3.5-turbo-16k",
         streaming=True,
-        callbacks=[ChatUpStreamHandler()],
+        callbacks=[ChatUpStreamHandler(conversation_id)],
         temperature=0
     )
     template = """The following is a friendly conversation between a human and an AI customer Assistant.

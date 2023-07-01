@@ -22,5 +22,4 @@ class Customer(Namespace):
     def on_message(self, data):
         print("Received another event with data: ", data)
         customer_message = message_schema.load(data)
-        respond_customer_message(customer_message)
-        # emit("ai_response", {"data": "This is another response"})
+        respond_customer_message(customer_message["conversation_id"], customer_message["message"])
