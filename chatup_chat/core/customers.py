@@ -22,17 +22,23 @@ def initiate_conversation(customer: dict):
             conv_id = db_client.add_conversation(shop_id)
     else:
         conv_id = db_client.add_conversation(shop_id)
-    CONVERSATIONS[conv_id] = {"conversation_chain": create_conversation_chain(conv_id), "shop_id": shop_id}
+    CONVERSATIONS[conv_id] = {
+        "conversation_chain": create_conversation_chain(conv_id),
+        "shop_id": shop_id,
+        "user_messages": []
+    }
     return conv_id
 
 
 def respond_customer_message(conversation_id: str, message: str):
     db_client.add_message(conversation_id, message, MessageType.USER.value)
+    CONVERSATIONS[conversation_id]["user_messages"].append(message)
+    to_embed = ''.join(CONVERSATIONS[conversation_id]["user_messages"][-3:])
     if conversation_id in CONVERSATIONS:
         conv_chain = CONVERSATIONS[conversation_id]["conversation_chain"]
         if conv_chain is None:
             CONVERSATIONS[conversation_id]["conversation_chain"] = create_conversation_chain(conversation_id)
-        query_embedding = get_user_query_embedding(message)
+        query_embedding = get_user_query_embedding(to_embed)
         context = db_client.get_closest_shop_doc(query_embedding, CONVERSATIONS[conversation_id]["shop_id"])
         input = f"""{message}\nContext-Start\n================\n{context}\n===============\nContext-end"""
         user_input = input
