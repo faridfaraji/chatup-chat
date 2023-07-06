@@ -25,8 +25,8 @@ class DatabaseApiClient:
             async with getattr(session, method)(self._gen_url(route), **kwargs):
                 pass
 
-    def get_shop_prompt(self, shop_id):
-        return self._make_request(requests.get, f"shops/{shop_id}/prompt")["prompt"]
+    def get_prompt(self):
+        return self._make_request(requests.get, "prompt")["prompt"]
 
     @print_durations
     def get_closest_shop_doc(self, embedding: List[float], shop_id: int):
