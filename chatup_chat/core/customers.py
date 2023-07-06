@@ -31,8 +31,10 @@ def initiate_conversation(customer: dict):
 
 
 def re_establish_conversation(conversation_id: str):
+    shop_id = db_client.get_conversation(conversation_id)["shop_id"]
     CONVERSATIONS[conversation_id] = {
         "conversation_chain": create_conversation_chain(conversation_id),
+        "shop_id": shop_id,
         "user_messages": []
     }
     return conversation_id
