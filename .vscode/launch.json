@@ -12,15 +12,7 @@
                 "GEVENT_SUPPORT": "true"
             },
             "module": "chatup_chat.chat",
-            "justMyCode": false
-        },
-        {
-            "name": "Python: Current File",
-            "type": "python",
-            "request": "launch",
-            "program": "${file}",
-            "console": "integratedTerminal",
-            "justMyCode": false
+            "justMyCode": true
         }
     ]
 }
