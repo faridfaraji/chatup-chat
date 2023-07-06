@@ -32,11 +32,11 @@ class DatabaseApiClient:
     def get_closest_shop_doc(self, embedding: List[float], shop_id: int):
         data = {
             "query_embedding": embedding,
-            "number_of_docs": 4
+            "number_of_docs": 7
         }
         docs = self._make_request(requests.post, f"shops/{shop_id}/closest-doc", json=data)
         context_doc = ""
-        for doc in docs[:5]:
+        for doc in docs[:7]:
             context_doc += doc["document"]
         return context_doc
 
