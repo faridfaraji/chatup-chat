@@ -30,6 +30,14 @@ def initiate_conversation(customer: dict):
     return conv_id
 
 
+def re_establish_conversation(conversation_id: str):
+    CONVERSATIONS[conversation_id] = {
+        "conversation_chain": create_conversation_chain(conversation_id),
+        "user_messages": []
+    }
+    return conversation_id
+
+
 def respond_customer_message(conversation_id: str, message: str):
     db_client.add_message(conversation_id, message, MessageType.USER.value)
     if conversation_id in CONVERSATIONS:
@@ -44,4 +52,5 @@ def respond_customer_message(conversation_id: str, message: str):
         user_input = input
         CONVERSATIONS[conversation_id]["conversation_chain"].predict(input=user_input)
     else:
-        raise Exception
+        re_establish_conversation(conversation_id)
+        respond_customer_message(conversation_id, message)
