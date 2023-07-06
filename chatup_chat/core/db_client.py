@@ -1,5 +1,6 @@
 
 from typing import List
+import aiohttp
 import requests
 from chatup_chat.config import config
 
@@ -17,10 +18,6 @@ class DatabaseApiClient:
         response.raise_for_status()
         return response.json()
 
-<<<<<<< Updated upstream
-    def get_shop_prompt(self, shop_id):
-        return self._make_request(requests.get, f"shops/{shop_id}/prompt")["prompt"]
-=======
     async def _make_async_request(self, method, route, **kwargs):
         async with aiohttp.ClientSession() as session:
             async with getattr(session, method)(self._gen_url(route), **kwargs):
@@ -28,7 +25,6 @@ class DatabaseApiClient:
 
     def get_prompt(self):
         return self._make_request(requests.get, "prompt")["prompt"]
->>>>>>> Stashed changes
 
     def get_closest_shop_doc(self, embedding: List[float], shop_id: int):
         data = {
