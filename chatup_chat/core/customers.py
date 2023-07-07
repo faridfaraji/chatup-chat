@@ -22,8 +22,9 @@ def initiate_conversation(customer: dict):
             conv_id = db_client.add_conversation(shop_id)
     else:
         conv_id = db_client.add_conversation(shop_id)
+    bot_temperature = db_client.get_shop_temperature(shop_id)
     CONVERSATIONS[conv_id] = {
-        "conversation_chain": create_conversation_chain(conv_id),
+        "conversation_chain": create_conversation_chain(conv_id, temperature=bot_temperature),
         "shop_id": shop_id,
         "user_messages": []
     }
@@ -32,8 +33,9 @@ def initiate_conversation(customer: dict):
 
 def re_establish_conversation(conversation_id: str):
     shop_id = db_client.get_conversation(conversation_id)["shop_id"]
+    bot_temperature = db_client.get_shop_temperature(shop_id)
     CONVERSATIONS[conversation_id] = {
-        "conversation_chain": create_conversation_chain(conversation_id),
+        "conversation_chain": create_conversation_chain(conversation_id, temperature=bot_temperature),
         "shop_id": shop_id,
         "user_messages": []
     }

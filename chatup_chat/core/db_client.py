@@ -28,6 +28,9 @@ class DatabaseApiClient:
     def get_prompt(self):
         return self._make_request(requests.get, "prompt")["prompt"]
 
+    def get_shop_temperature(self, shop_id: int):
+        return self._make_request(requests.get, f"shops/{shop_id}")["bot_temperature"]
+
     @print_durations
     def get_closest_shop_doc(self, embedding: List[float], shop_id: int):
         data = {
