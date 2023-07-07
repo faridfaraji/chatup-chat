@@ -4,7 +4,7 @@ from marshmallow import Schema, fields
 
 class CustomerSchema(Schema):
     shop_id = fields.Int(required=True)
-    conversation_id = fields.Str(missing="")
+    conversation_id = fields.Str(missing="", allow_none=True)
 
 
 class MessageSchema(Schema):
