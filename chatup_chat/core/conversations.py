@@ -9,12 +9,12 @@ from chatup_chat.core.response_handler import ChatUpStreamHandler
 db_client = DatabaseApiClient()
 
 
-def create_conversation_chain(conversation_id):
+def create_conversation_chain(conversation_id, temperature=0):
     chat = ChatOpenAI(
         model_name="gpt-3.5-turbo-16k",
         streaming=True,
         callbacks=[ChatUpStreamHandler(conversation_id)],
-        temperature=0
+        temperature=temperature
     )
     template = db_client.get_prompt()
     PROMPT = PromptTemplate(input_variables=["history", "input"], template=template)
