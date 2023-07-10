@@ -21,8 +21,3 @@ class ChatUpStreamHandler(StreamingStdOutCallbackHandler):
     def on_llm_end(self, response: LLMResult, **kwargs: Any) -> None:
         response = response.generations[0][0].text
         db_client.add_message(self.conversation_id, response, MessageType.AI.value)
-        # return super().on_llm_end(response, **kwargs)
-    # def on_llm_end(self, response: LLMResult, **kwargs: Any) -> None:
-    #     ai_response = response[]
-    #     db_client.add_message(self.conversation_id, response, MessageType.AI.value)
-
