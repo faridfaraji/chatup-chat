@@ -25,6 +25,9 @@ class DatabaseApiClient:
             async with getattr(session, method)(self._gen_url(route), **kwargs):
                 pass
 
+    def get_negative_keywords(self, shop_id: int):
+        return self._make_request(requests.get, f"shops/{shop_id}/negative-keywords")
+
     def get_prompt(self):
         return self._make_request(requests.get, "prompt")["prompt"]
 
