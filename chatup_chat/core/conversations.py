@@ -19,7 +19,8 @@ def create_conversation_chain(conversation_id, shop_id, temperature=0):
     )
     template: str = db_client.get_prompt()
     negative_keywords: List[str] = db_client.get_negative_keywords(shop_id)
-    template = template.format(negativeKeyWords=', '.join(negative_keywords), history="{history}", input="{input}")
+    negative_keywords_string = ', '.join(negative_keywords)
+    template = template.format(negativeKeyWords=f"'{negative_keywords_string}'", history="{history}", input="{input}")
     PROMPT = PromptTemplate(input_variables=["history", "input"], template=template)
     memory = ConversationSummaryBufferMemory(
         llm=chat, input_key="input", max_token_limit=10000, human_prefix="Customer"
