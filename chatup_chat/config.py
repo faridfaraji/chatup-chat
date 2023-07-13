@@ -16,6 +16,10 @@ def load(environment):
     config = probe(path=str(RESOURCES_PATH), patterns=[config_file, env_config_file])
     config.database.url = f"{config.database.host}:{config.database.port}/{config.database.api_version}"
     config.database.url_api_version = f"{config.database.host}:{config.database.port}/{config.database.api_version}"
+    config.chat_analytics.url = \
+        f"{config.chat_analytics.host}:{config.chat_analytics.port}/{config.chat_analytics.api_version}"
+    config.chat_analytics.url_api_version = \
+        f"{config.chat_analytics.host}:{config.chat_analytics.port}/{config.chat_analytics.api_version}"
     return config
 
 

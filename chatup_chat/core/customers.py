@@ -1,6 +1,7 @@
 
 
 from requests import HTTPError
+from chatup_chat.core.analytics_client import ChatAnalyticsApiClient
 from chatup_chat.core.conversations import create_conversation_chain
 from chatup_chat.core.db_client import DatabaseApiClient
 from chatup_chat.core.message_enums import MessageType
@@ -8,7 +9,7 @@ from chatup_chat.core.open_ai_client import get_user_query_embedding
 import enum
 
 db_client = DatabaseApiClient()
-
+chat_analytics = ChatAnalyticsApiClient()
 CONVERSATIONS = {}
 
 
@@ -43,6 +44,7 @@ def re_establish_conversation(conversation_id: str):
 
 
 def respond_customer_message(conversation_id: str, message: str):
+    chat_analytics.submit_conversation_analytics(conversation_id)
     db_client.add_message(conversation_id, message, MessageType.USER.value)
     if conversation_id in CONVERSATIONS:
         conv_chain = CONVERSATIONS[conversation_id]["conversation_chain"]
