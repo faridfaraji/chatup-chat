@@ -1,3 +1,6 @@
 database:
   port: "8002"
   api_version: "v1"
+chat_analytics:
+  port: "8005"
+  api_version: "v1"

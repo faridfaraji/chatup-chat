@@ -1,2 +1,4 @@
 database:
   host: "http://34.125.95.96"
+chat_analytics:
+  host: "http://34.125.95.96"
