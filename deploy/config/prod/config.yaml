@@ -1,4 +1,6 @@
 database:
-  host: "http://localhost"
+  host: "http://db-api"
+  port: "80"
 chat_analytics:
-  host: "http://localhost"
+  host: "http://chat-analytics"
+  port: "80"

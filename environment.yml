@@ -21,5 +21,6 @@ dependencies:
       - gevent-websocket
       - flask-socketio
       - flask-cors
+      - funcy
       - tox-conda
       - git+https://github.com/korbit-ai/python-config-probe.git
