@@ -2,3 +2,6 @@ database:
   host: "http://localhost"
 chat_analytics:
   host: "http://localhost"
+redis_cluster:
+  url: "localhost"
+  port: "6379"

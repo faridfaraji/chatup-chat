@@ -62,3 +62,6 @@ class DatabaseApiClient:
             "messages": []
         }
         return self._make_request(requests.post, "conversations", json=data)
+
+    def get_messages(self, conversation_id):
+        return self._make_request(requests.get, f"conversations/{conversation_id}/messages")

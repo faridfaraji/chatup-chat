@@ -1,4 +1,7 @@
 database:
-  host: "http://34.125.95.96"
+  host: "http://34.125.220.109"
 chat_analytics:
-  host: "http://34.125.95.96"
+  host: "http://34.125.220.109"
+redis_cluster:
+  url: "localhost"
+  port: "6379"

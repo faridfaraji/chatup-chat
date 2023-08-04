@@ -1,62 +1,54 @@
 
 
 from requests import HTTPError
-from chatup_chat.core.analytics_client import ChatAnalyticsApiClient
-from chatup_chat.core.conversations import create_conversation_chain
-from chatup_chat.core.db_client import DatabaseApiClient
-from chatup_chat.core.message_enums import MessageType
-from chatup_chat.core.open_ai_client import get_user_query_embedding
-import enum
+from chatup_chat.adapter.analytics_client import ChatAnalyticsApiClient
+from chatup_chat.core.cache import RedisClusterJson
+from chatup_chat.adapter.db_client import DatabaseApiClient
 
 db_client = DatabaseApiClient()
 chat_analytics = ChatAnalyticsApiClient()
 CONVERSATIONS = {}
+cache = RedisClusterJson()
+
+
+def process_message(message: dict):
+    if message["message_type"] == "USER":
+        return {
+            "role": "user",
+            "content": message["message"]
+        }
+    else:
+        return {
+            "role": "assistant",
+            "content": message["message"]
+        }
 
 
 def initiate_conversation(customer: dict):
     conv_id = customer["conversation_id"]
     shop_id = customer["shop_id"]
+    conversation = None
     if conv_id:
         try:
-            db_client.get_conversation(conv_id)
+            conversation = db_client.get_conversation(conv_id)
         except HTTPError:
             conv_id = db_client.add_conversation(shop_id)
     else:
         conv_id = db_client.add_conversation(shop_id)
     bot_temperature = db_client.get_shop_temperature(shop_id)
-    CONVERSATIONS[conv_id] = {
-        "conversation_chain": create_conversation_chain(conv_id, shop_id, temperature=bot_temperature),
+    messages = db_client.get_messages(conv_id)
+    summary = None
+    if conversation:
+        summary = conversation["conversation_summary"]["summary"]
+    processed_message = []
+    for msg in messages:
+        processed_message.append(process_message(msg))
+
+    cache[conv_id] = {
+        "conversation_id": conv_id,
+        "bot_temperature": bot_temperature,
+        "messages": processed_message,
         "shop_id": shop_id,
-        "user_messages": []
+        "summary": summary
     }
     return conv_id
-
-
-def re_establish_conversation(conversation_id: str):
-    shop_id = db_client.get_conversation(conversation_id)["shop_id"]
-    bot_temperature = db_client.get_shop_temperature(shop_id)
-    CONVERSATIONS[conversation_id] = {
-        "conversation_chain": create_conversation_chain(conversation_id, shop_id, temperature=bot_temperature),
-        "shop_id": shop_id,
-        "user_messages": []
-    }
-    return conversation_id
-
-
-def respond_customer_message(conversation_id: str, message: str):
-    chat_analytics.submit_conversation_analytics(conversation_id)
-    db_client.add_message(conversation_id, message, MessageType.USER.value)
-    if conversation_id in CONVERSATIONS:
-        conv_chain = CONVERSATIONS[conversation_id]["conversation_chain"]
-        if conv_chain is None:
-            CONVERSATIONS[conversation_id]["conversation_chain"] = create_conversation_chain(conversation_id)
-        CONVERSATIONS[conversation_id]["user_messages"].append(message)
-        to_embed = ''.join(CONVERSATIONS[conversation_id]["user_messages"][-3:])
-        query_embedding = get_user_query_embedding(to_embed)
-        context = db_client.get_closest_shop_doc(query_embedding, CONVERSATIONS[conversation_id]["shop_id"])
-        input = f"""{message}\nContext-Start\n================\n{context}\n===============\nContext-end"""
-        user_input = input
-        CONVERSATIONS[conversation_id]["conversation_chain"].predict(input=user_input)
-    else:
-        re_establish_conversation(conversation_id)
-        respond_customer_message(conversation_id, message)
