@@ -7,10 +7,7 @@ from chatup_chat.adapter.db_client import DatabaseApiClient
 from chatup_chat.core.cache import RedisClusterJson
 from chatup_chat.core.util import count_tokens_messages
 
-SYSTEM_MESSAGE = {
-    "role": "system",
-    "content": "you are a helpful AI assistant, try to help"
-}
+
 cache = RedisClusterJson()
 db_client = DatabaseApiClient()
 
@@ -34,11 +31,12 @@ class Memory:
     bot = field(default=None, kw_only=True)
     initial_system_message: dict = field(default=None, kw_only=True)
 
-    def __attrs_post_init__(self):
+    def initiate_system_message(self):
         prompt: str = db_client.get_prompt()
+        negative_keywords = db_client.get_negative_keywords(self.bot.shop_id)
         self.initial_system_message = {
             "role": "system",
-            "content": prompt
+            "content": prompt.format(negativeKeyWords=negative_keywords)
         }
 
     def add_message(self, message: str):

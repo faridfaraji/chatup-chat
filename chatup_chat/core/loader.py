@@ -19,5 +19,6 @@ def load_chat_bot(conversation_id: str):
             **bot_data
         )
         customer_service_bot.memory.bot = customer_service_bot
+        customer_service_bot.memory.initiate_system_message()
         return customer_service_bot
     return CustomerBot(conversation_id=conversation_id)
