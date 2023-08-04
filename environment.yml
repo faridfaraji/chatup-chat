@@ -22,5 +22,6 @@ dependencies:
       - flask-socketio
       - flask-cors
       - funcy
+      - redis
       - tox-conda
       - git+https://github.com/korbit-ai/python-config-probe.git

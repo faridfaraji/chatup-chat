@@ -2,3 +2,5 @@
 *pyc*
 *.vscode*
 *playground.py*
+*dump.rdb*
+*.pyc*
