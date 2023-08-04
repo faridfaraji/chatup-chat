@@ -13,5 +13,10 @@ def health_check():
     return jsonify(status='healthy'), 200
 
 
+@app.route('/', methods=['GET'])
+def health():
+    return jsonify(status='healthy'), 200
+
+
 if __name__ == "__main__":
     socketio.run(app, debug=True, port=8014)
