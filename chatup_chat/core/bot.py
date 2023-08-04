@@ -31,5 +31,5 @@ class CustomerBot(Bot):
     @save_messages
     def converse(self, message: str):
         self.current_message = message
-        Chat.add_context(message, self)
+        Chat.add_context(self)
         return Chat.chat(self)

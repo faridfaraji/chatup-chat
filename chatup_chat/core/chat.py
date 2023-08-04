@@ -7,10 +7,6 @@ from chatup_chat.core.cache import RedisClusterJson
 from chatup_chat.core.message_enums import MessageType
 from chatup_chat.core.response_handler import LLMStreamHandler
 
-SYSTEM_MESSAGE = {
-    "role": "system",
-    "content": "you are a helpful AI assistant, try to help"
-}
 
 chat_analytics = ChatAnalyticsApiClient()
 db_client = DatabaseApiClient()
@@ -42,8 +38,13 @@ class Chat:
         return result
 
     @classmethod
-    def add_context(cls, message: str, bot: Bot):
-        query_embedding = get_user_query_embedding(message)
+    def add_context(cls, bot: Bot):
+        messages = bot.memory.messages[-4:]
+        to_embed = ""
+        for msg in messages:
+            if msg["role"] == "user":
+                to_embed += msg["content"]
+        query_embedding = get_user_query_embedding(to_embed)
         context = db_client.get_closest_shop_doc(query_embedding, bot.shop_id)
         bot.memory.add_message(
             {
