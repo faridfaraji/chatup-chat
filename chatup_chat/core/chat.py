@@ -49,6 +49,6 @@ class Chat:
         bot.memory.add_message(
             {
                 "role": "system",
-                "content": f"here is some context that might help you answer the user's question: {context}"
+                "content": f"HERE IS SOME INFORMATION THAT YOU SHOULD TRY TO USE TO ANSWER THE USER TO THE BEST OF YOUR ABILITY WITH:\n\n {context}"
             }
         )
