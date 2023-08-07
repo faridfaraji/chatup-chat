@@ -47,7 +47,7 @@ class Chat:
         to_embed += message
         query_embedding = get_user_query_embedding(to_embed)
         context = db_client.get_closest_shop_doc(query_embedding, bot.shop_id)
-        bot.memory.add_message(
+        bot.memory.set_context(
             {
                 "role": "system",
                 "content": f"HERE IS FACTUAL STORE INFORMATION THAT YOU SHOULD TRY TO USE TO ANSWER THE USER TO THE BEST OF YOUR ABILITY WITH:\n\n {context}"

@@ -30,6 +30,7 @@ class Memory:
     summary: str = field(default=None, kw_only=True)
     bot = field(default=None, kw_only=True)
     initial_system_message: dict = field(default=None, kw_only=True)
+    context = field(default=None, kw_only=True)
 
     def initiate_system_message(self):
         prompt: str = db_client.get_prompt()
@@ -53,7 +54,12 @@ class Memory:
         messages = []
         if self.initial_system_message:
             messages.append(self.initial_system_message)
+        if self.context:
+            messages.append(self.context)
         if self.summary:
             messages.append({"role": "system", "content": f"here is a summary of conversation so far: {self.summary}"})
         messages.extend(self.messages)
         return messages
+
+    def set_context(self, context: dict):
+        self.context = context
