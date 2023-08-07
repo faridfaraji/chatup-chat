@@ -30,4 +30,5 @@ class Customer(Namespace):
         print("Received another event with data: ", data)
         customer_message = message_schema.load(data)
         customer_bot = load_chat_bot(conversation_id=customer_message["conversation_id"])
+        customer_bot.add_context(customer_message["message"])
         customer_bot.converse(customer_message["message"])

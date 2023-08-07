@@ -38,12 +38,13 @@ class Chat:
         return result
 
     @classmethod
-    def add_context(cls, bot: Bot):
-        messages = bot.memory.messages[-4:]
-        to_embed = ""
+    def add_context(cls, bot: Bot, message: str):
+        messages = bot.memory.messages[-2:]
+        to_embed = " "
         for msg in messages:
             if msg["role"] == "user":
-                to_embed += msg["content"]
+                to_embed += f"{msg['content']} "
+        to_embed += message
         query_embedding = get_user_query_embedding(to_embed)
         context = db_client.get_closest_shop_doc(query_embedding, bot.shop_id)
         bot.memory.add_message(
