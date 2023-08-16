@@ -50,6 +50,6 @@ class Chat:
         bot.memory.set_context(
             {
                 "role": "system",
-                "content": f"HERE IS FACTUAL STORE INFORMATION THAT YOU SHOULD TRY TO USE TO ANSWER THE USER TO THE BEST OF YOUR ABILITY WITH:\n\n {context}"
+                "content": f"HERE IS FACTUAL STORE INFORMATION THAT YOU USE TO ANSWER THE USER WITH, ONLY ANSWER BASED ON THESE INFO AND DO NOT MAKE UP ANY FACTS:\n\n {context}"
             }
         )
