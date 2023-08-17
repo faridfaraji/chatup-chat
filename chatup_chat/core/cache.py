@@ -21,6 +21,9 @@ class RedisCluster:
     def __getitem__(self, key):
         return self.get(key)
 
+    def get_raw(self, key):
+        return self._cache.get(key)
+
     def get(self, key):
         return self._cache.get(self.get_namespaced_key(key))
 
@@ -41,7 +44,7 @@ class RedisCluster:
         return False
 
     def get_namespaced_key(self, key):
-        return f"chatup_chat_{self.namespace}_{key}_conversation"
+        return f"chatup_chat_{self.namespace}_{key}"
 
 
 class RedisClusterJson(RedisCluster):
@@ -56,6 +59,17 @@ class RedisClusterJson(RedisCluster):
         if not value:
             return None
         return json.loads(value.decode("utf-8"))
+
+    def get_with_whole_key(self, key):
+        value = super(RedisClusterJson, self).get_raw(key)
+        if not value:
+            return None
+        return json.loads(value.decode("utf-8"))
+
+    def get_by_patterns(self, key):
+        keys = self.get_keys(pattern=key)
+        results = [self.get_with_whole_key(the_key.decode("utf-8")) for the_key in keys]
+        return results
 
     def hget(self, name, key):
         value = super(RedisClusterJson, self).hget(name, key)

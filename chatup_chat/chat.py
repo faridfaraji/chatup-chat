@@ -1,11 +1,13 @@
 
 from flask import Flask, jsonify
+from chatup_chat.api.admin import Admin
 from chatup_chat.api.customer import Customer
 from flask_socketio import SocketIO
 
 app = Flask(__name__)
 socketio = SocketIO(app, cors_allowed_origins="*")
 socketio.on_namespace(Customer('/customer'))
+socketio.on_namespace(Admin('/admin'))
 
 
 @app.route('/health', methods=['GET'])

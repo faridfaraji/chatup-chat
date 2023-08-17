@@ -10,3 +10,9 @@ class CustomerSchema(Schema):
 class MessageSchema(Schema):
     conversation_id = fields.Str(required=True)
     message = fields.Str(message="")
+
+
+class AdminMessageSchema(Schema):
+    shop_id = fields.Str(required=True)
+    conversation_id = fields.Str(required=True)
+    message = fields.Str(message="")
