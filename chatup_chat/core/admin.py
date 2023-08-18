@@ -60,8 +60,3 @@ class AdminManager:
         admins = cls.get_space_admin("admin_*")
         for admin in admins:
             admin.notify_admin_of_off_room()
-
-# def process_admin_msg(shop_id, conversation_id, msg):
-#     room = RoomManager.get_room(shop_id, conversation_id)
-#     room.admin_managed = True
-#     room.admin_msg()

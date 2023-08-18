@@ -3,7 +3,7 @@ from typing import List
 from chatup_chat.core.admin import AdminManager
 from chatup_chat.core.cache import RedisClusterJson
 
-from flask_socketio import join_room, leave_room, send, emit
+from flask_socketio import emit
 
 
 cache = RedisClusterJson()
@@ -68,9 +68,7 @@ class RoomManager:
     @classmethod
     def checkout_rooms(cls, session_id: str):
         rooms = cache.get_by_patterns(f"room_*:{session_id}")
-        print(rooms)
         rooms: List[Room] = [Room(**room) for room in rooms]
-        print("-->", rooms)
         for room in rooms:
             print(room)
             room.is_live = False
@@ -78,7 +76,7 @@ class RoomManager:
             cache[room.id] = room.to_dict()
             for admin in admins:
                 admin.notify_admin_of_off_room(room.conversation_id)
-    
+
     @classmethod
     def update_room(cls, room: Room):
         cache[room.id] = room.to_dict()
