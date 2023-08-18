@@ -1,5 +1,6 @@
 from dataclasses import dataclass
 from typing import List
+from chatup_chat.core.admin import AdminManager
 from chatup_chat.core.cache import RedisClusterJson
 
 from flask_socketio import join_room, leave_room, send, emit
@@ -12,6 +13,7 @@ cache = RedisClusterJson()
 class Room:
     id: str = None
     is_live: bool = False
+    space_id: str = None
     admin_managed: bool = False
     conversation_id: str = None
     admin_session_id: str = None
@@ -25,6 +27,7 @@ class Room:
             "conversation_id": self.conversation_id,
             "admin_session_id": self.admin_session_id,
             "occupant_session_id": self.occupant_session_id,
+            "space_id": self.space_id
         }
 
     def admin_msg(self, msg):
@@ -41,6 +44,7 @@ class RoomManager:
         else:
             room = Room(
                 id=cls.get_room_id(shop_id, session_id),
+                space_id=shop_id
             )
         return room
 
@@ -48,6 +52,10 @@ class RoomManager:
     def occupy_room(cls, room: Room):
         room.is_live = True
         cache[room.id] = room.to_dict()
+        admins = AdminManager.get_space_admin(room.space_id)
+        print('--->', admins)
+        for admin in admins:
+            admin.notify_admin_of_live_room(room.conversation_id)
 
     @classmethod
     def get_live_rooms(cls, space) -> List[Room]:
@@ -66,8 +74,11 @@ class RoomManager:
         for room in rooms:
             print(room)
             room.is_live = False
+            admins = AdminManager.get_space_admin(room.space_id)
             cache[room.id] = room.to_dict()
-
+            for admin in admins:
+                admin.notify_admin_of_off_room(room.conversation_id)
+    
     @classmethod
     def update_room(cls, room: Room):
         cache[room.id] = room.to_dict()

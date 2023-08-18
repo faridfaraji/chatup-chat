@@ -24,4 +24,5 @@ dependencies:
       - funcy
       - redis
       - tox-conda
+      - ShopifyAPI
       - git+https://github.com/korbit-ai/python-config-probe.git

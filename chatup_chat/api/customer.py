@@ -27,7 +27,6 @@ class Customer(Namespace):
     def on_init(self, data):
         customer = customer_schema.load(data)
         conversation_id = initiate_conversation(customer)
-        print("here")
         emit("init_response", conversation_id)
 
     def on_message(self, data):
