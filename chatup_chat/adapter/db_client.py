@@ -34,6 +34,13 @@ class DatabaseApiClient:
     def get_shop_temperature(self, shop_id: int):
         return self._make_request(requests.get, f"shops/{shop_id}")["bot_temperature"]
 
+    def get_shop_profile_by_shop_url(self, shop_url: str):
+        shops = self._make_request(requests.get, "shops", params={"shop_url": shop_url})
+        if shops:
+            return shops[0]
+        else:
+            raise Exception("Shop not found")
+
     @print_durations
     def get_closest_shop_doc(self, embedding: List[float], shop_id: int):
         data = {
