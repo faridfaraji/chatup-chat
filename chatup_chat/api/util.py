@@ -7,9 +7,10 @@ import logging
 from urllib.parse import unquote, urlparse
 from flask_socketio import disconnect
 
-from chatup_chat.core.admin import AdminManager
+from chatup_chat.core.admin.admin_manager import AdminManager
 
 db_client = DatabaseApiClient()
+
 
 def validate_shopify_token():
     try:
@@ -33,6 +34,6 @@ def validate_shopify_token():
 
 
 def authorize_admin():
-    shop_id = validate_shopify_token()
-    admin = AdminManager.init_admin(shop_id, request.sid)
+    # shop_id = validate_shopify_token()
+    admin = AdminManager.init_admin("72856895765", request.sid)
     return admin

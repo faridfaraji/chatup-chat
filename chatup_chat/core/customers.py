@@ -6,7 +6,8 @@ from chatup_chat.core.cache import RedisClusterJson
 from chatup_chat.adapter.db_client import DatabaseApiClient
 from flask import Flask, request
 
-from chatup_chat.core.room import Room, RoomManager
+from chatup_chat.core.room.room import Room
+from chatup_chat.core.room.room_manager import RoomManager
 
 db_client = DatabaseApiClient()
 chat_analytics = ChatAnalyticsApiClient()
@@ -54,7 +55,7 @@ def initiate_conversation(customer: dict):
         "shop_id": shop_id,
         "summary": summary
     }
-    room: Room = RoomManager.get_room(shop_id, request.sid)
+    room: Room = RoomManager.get_room(shop_id, request.sid, conv_id)
     room.conversation_id = conv_id
     RoomManager.occupy_room(room)
     return conv_id
