@@ -1,5 +1,5 @@
 database:
-  host: "http://34.125.23.76"
+  host: "http://localhost"
 chat_analytics:
   host: "http://34.125.23.76"
 redis_cluster:

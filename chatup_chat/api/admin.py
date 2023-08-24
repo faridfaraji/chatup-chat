@@ -8,39 +8,51 @@ from chatup_chat.core.admin.admin_manager import AdminManager
 from chatup_chat.core.cache import RedisClusterJson
 from chatup_chat.core.chat import Chat
 from chatup_chat.core.loader import load_chat_bot
+from chatup_chat.core.message_enums import MessageType
 from chatup_chat.core.room.room_manager import RoomManager
+from chatup_chat.models.message import Message
 
 message_schema = AdminMessageSchema()
 chat = Chat()
 cache = RedisClusterJson()
+room_manager = RoomManager()
+admin_manager = AdminManager()
+
+room_manager.admin_manager = admin_manager
+admin_manager.room_manager = room_manager
 
 
 class Admin(Namespace):
 
     def on_connect(self):
-        admin = authorize_admin()
+        admin = authorize_admin(admin_manager)
         print("Admin connected")
-        rooms = RoomManager.get_live_rooms(admin.shop_id)
+        rooms = room_manager.get_live_rooms(admin.shop_id)
         conversation_ids = [room.conversation_id for room in rooms]
 
         emit("live_conversations", conversation_ids)
 
     def on_disconnect(self):
-        AdminManager.checkout_admin(request.sid)
+        admin = admin_manager.get_admin_by_session(request.sid)
+        admin_manager.checkout_admin(admin)
         print("Admin disconnected")
 
     def on_get_live_conversations(self):
-        admin = AdminManager.get_admin_by_session(request.sid)
-        rooms = RoomManager.get_live_rooms(admin.shop_id)
+        admin = admin_manager.get_admin_by_session(request.sid)
+        rooms = room_manager.get_live_rooms(admin.shop_id)
         conversation_ids = [room.conversation_id for room in rooms]
         emit("live_conversations", conversation_ids)
 
     def on_message(self, data):
         admin_message = message_schema.load(data)
         customer_bot = load_chat_bot(conversation_id=admin_message["conversation_id"])
-        admin = AdminManager.get_admin_by_session(request.sid)
+        admin = admin_manager.get_admin_by_session(request.sid)
         print("Received another event with data: ", data)
-        room = RoomManager.get_room_by_conversation_id(admin_message["conversation_id"])
+        room = room_manager.get_room_by_conversation_id(admin_message["conversation_id"])
         room.set_bot(customer_bot)
         admin.take_over_conversation(room)
-        admin.message_user(room, admin_message["message"])
+        admin.message_user(room, Message(
+            message=admin_message["message"],
+            message_type=MessageType.USER.value,
+            metadata=["admin"]
+        ))

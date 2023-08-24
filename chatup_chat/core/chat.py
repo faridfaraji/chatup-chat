@@ -15,7 +15,7 @@ class Chat:
     @classmethod
     def chat(cls, room: Room):
         result = chat_completion(room, stream=True)
-        chat_analytics.submit_conversation_analytics(room.conversation_id)
+        # chat_analytics.submit_conversation_analytics(room.conversation_id)
         return result
 
     @classmethod

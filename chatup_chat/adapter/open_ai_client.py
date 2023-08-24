@@ -19,7 +19,6 @@ def chat_completion(room: Room, stream=True):
     bot = room.bot
     messages = bot.memory.get_messages()
     print(messages)
-    print(bot.bot_temperature)
     completion = openai.ChatCompletion.create(
         model=MODEL_NAME,
         messages=messages,

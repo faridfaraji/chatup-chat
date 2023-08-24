@@ -7,8 +7,6 @@ import logging
 from urllib.parse import unquote, urlparse
 from flask_socketio import disconnect
 
-from chatup_chat.core.admin.admin_manager import AdminManager
-
 db_client = DatabaseApiClient()
 
 
@@ -33,7 +31,7 @@ def validate_shopify_token():
         raise Exception()
 
 
-def authorize_admin():
+def authorize_admin(admin_manager):
     # shop_id = validate_shopify_token()
-    admin = AdminManager.init_admin("72856895765", request.sid)
+    admin = admin_manager.init_admin("72856895765", request.sid)
     return admin

@@ -4,6 +4,7 @@ import tiktoken
 from chatup_chat.adapter.db_client import DatabaseApiClient
 from chatup_chat.core.message_enums import MessageType
 from chatup_chat.core.settings import MODEL_NAME
+from chatup_chat.models.message import Message
 
 db_client = DatabaseApiClient()
 
@@ -16,11 +17,16 @@ def count_tokens_messages(messages: List[dict]):
     return num_tokens
 
 
-def save_message(room, message: str, message_type: str):
-    if message_type == MessageType.USER.value:
-        room.bot.memory.add_message({"role": "user", "content": f"customer asks: {message}"})
-    elif message_type == MessageType.AI.value:
-        room.bot.memory.add_message({"role": "assistant", "content": message})
-    elif message_type == MessageType.ADMIN.value:
-        room.bot.memory.add_message({"role": "user", "content": f"admin says: {message}"})
-    db_client.add_message(room.conversation_id, message, message_type)
+def load_message(message: Message):
+    if message.message_type == MessageType.USER.value:
+        if message.metadata and "admin" in message.metadata:
+            return {"role": "user", "content": f"admin says: {message}"}
+        else:
+            return {"role": "user", "content": f"customer asks: {message}"}
+    elif message.message_type == MessageType.AI.value:
+        return {"role": "assistant", "content": message.message}
+
+
+def save_message(room, message: Message):
+    room.bot.memory.add_message(load_message(message))
+    db_client.add_message(room.conversation_id, message)
