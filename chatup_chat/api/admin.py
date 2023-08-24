@@ -56,3 +56,9 @@ class Admin(Namespace):
             message_type=MessageType.USER.value,
             metadata=["admin"]
         ))
+
+    def on_forfeit(self, data):
+        conversation_id = data["conversation_id"]
+        room = room_manager.get_room_by_conversation_id(conversation_id)
+        room.admin_managed = False
+        room.save()
