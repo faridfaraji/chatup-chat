@@ -6,6 +6,8 @@ import requests
 from chatup_chat.config import config
 from funcy import print_durations
 
+from chatup_chat.models.message import Message
+
 
 class DatabaseApiClient:
     def __init__(self):
@@ -53,11 +55,8 @@ class DatabaseApiClient:
             context_doc += doc["document"]
         return context_doc
 
-    def add_message(self, conversation_id, message, message_type):
-        data = {
-            "message_type": message_type,
-            "message": message
-        }
+    def add_message(self, conversation_id, message: Message):
+        data = message.to_dict()
         asyncio.run(self._make_async_request("post", f"conversations/{conversation_id}/messages", json=data))
 
     def get_conversation(self, conversation_id):
@@ -71,4 +70,6 @@ class DatabaseApiClient:
         return self._make_request(requests.post, "conversations", json=data)
 
     def get_messages(self, conversation_id):
-        return self._make_request(requests.get, f"conversations/{conversation_id}/messages")
+        messages = self._make_request(requests.get, f"conversations/{conversation_id}/messages")
+        messages = [Message.make_obj(msg) for msg in messages]
+        return messages

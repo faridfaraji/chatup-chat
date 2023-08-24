@@ -2,11 +2,14 @@
 
 from requests import HTTPError
 from chatup_chat.adapter.analytics_client import ChatAnalyticsApiClient
+from chatup_chat.core import Manager
 from chatup_chat.core.cache import RedisClusterJson
 from chatup_chat.adapter.db_client import DatabaseApiClient
-from flask import Flask, request
+from flask import request
 
-from chatup_chat.core.room import Room, RoomManager
+from chatup_chat.core.room.room import Room
+from chatup_chat.core.util import load_message
+from chatup_chat.models.message import Message
 
 db_client = DatabaseApiClient()
 chat_analytics = ChatAnalyticsApiClient()
@@ -14,20 +17,7 @@ CONVERSATIONS = {}
 cache = RedisClusterJson()
 
 
-def process_message(message: dict):
-    if message["message_type"] == "USER":
-        return {
-            "role": "user",
-            "content": message["message"]
-        }
-    else:
-        return {
-            "role": "assistant",
-            "content": message["message"]
-        }
-
-
-def initiate_conversation(customer: dict):
+def initiate_conversation(room_manager: Manager, customer: dict):
     conv_id = customer["conversation_id"]
     shop_id = customer["shop_id"]
     conversation = None
@@ -39,13 +29,12 @@ def initiate_conversation(customer: dict):
     else:
         conv_id = db_client.add_conversation(shop_id)
     bot_temperature = db_client.get_shop_temperature(shop_id)
-    messages = db_client.get_messages(conv_id)
+    messages: Message = db_client.get_messages(conv_id)
     summary = None
     if conversation:
         summary = conversation["conversation_summary"]["summary"]
     processed_message = []
-    for msg in messages:
-        processed_message.append(process_message(msg))
+    messages = [load_message(msg) for msg in messages]
 
     cache[conv_id] = {
         "conversation_id": conv_id,
@@ -54,7 +43,7 @@ def initiate_conversation(customer: dict):
         "shop_id": shop_id,
         "summary": summary
     }
-    room: Room = RoomManager.get_room(shop_id, request.sid)
+    room: Room = room_manager.get_room(shop_id, request.sid, conv_id)
     room.conversation_id = conv_id
-    RoomManager.occupy_room(room)
+    room_manager.occupy_room(room)
     return conv_id
