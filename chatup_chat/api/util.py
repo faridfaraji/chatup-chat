@@ -32,6 +32,6 @@ def validate_shopify_token():
 
 
 def authorize_admin(admin_manager):
-    # shop_id = validate_shopify_token()
-    admin = admin_manager.init_admin("72856895765", request.sid)
+    shop_id = validate_shopify_token()
+    admin = admin_manager.init_admin(shop_id, request.sid)
     return admin

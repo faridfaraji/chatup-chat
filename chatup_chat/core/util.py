@@ -20,9 +20,9 @@ def count_tokens_messages(messages: List[dict]):
 def load_message(message: Message):
     if message.message_type == MessageType.USER.value:
         if message.metadata and "admin" in message.metadata:
-            return {"role": "user", "content": f"admin says: {message}"}
+            return {"role": "user", "content": f"admin says: {message.message}"}
         else:
-            return {"role": "user", "content": f"customer asks: {message}"}
+            return {"role": "user", "content": f"customer asks: {message.message}"}
     elif message.message_type == MessageType.AI.value:
         return {"role": "assistant", "content": message.message}
 
