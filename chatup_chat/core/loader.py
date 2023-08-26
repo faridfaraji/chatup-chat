@@ -1,7 +1,7 @@
 from attr import define, field
 from chatup_chat.core.bot import CustomerBot
 from chatup_chat.core.cache import RedisClusterJson
-from chatup_chat.core.memory import Memory
+from chatup_chat.core.memory import BotMemory
 
 cache = RedisClusterJson()
 
@@ -9,7 +9,7 @@ cache = RedisClusterJson()
 def load_chat_bot(conversation_id: str):
     bot_data = cache[conversation_id]
     if bot_data:
-        bot_data["memory"] = Memory(
+        bot_data["memory"] = BotMemory(
             messages=bot_data["messages"],
             summary=bot_data["summary"]
         )

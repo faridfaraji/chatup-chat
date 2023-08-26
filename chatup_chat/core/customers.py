@@ -12,7 +12,6 @@ from chatup_chat.core.util import load_message
 from chatup_chat.models.message import Message
 
 db_client = DatabaseApiClient()
-chat_analytics = ChatAnalyticsApiClient()
 CONVERSATIONS = {}
 cache = RedisClusterJson()
 

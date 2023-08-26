@@ -5,7 +5,6 @@ from chatup_chat.api.models.customer import CustomerSchema, MessageSchema
 from chatup_chat.core.admin.admin_manager import AdminManager
 from chatup_chat.core.loader import load_chat_bot
 from chatup_chat.core.cache import RedisClusterJson
-from chatup_chat.core.chat import Chat
 from chatup_chat.core.customers import initiate_conversation
 from flask import request
 from chatup_chat.core.message_enums import MessageType
@@ -15,7 +14,6 @@ from chatup_chat.models.message import Message
 
 customer_schema = CustomerSchema()
 message_schema = MessageSchema()
-chat = Chat()
 cache = RedisClusterJson()
 
 room_manager = RoomManager()

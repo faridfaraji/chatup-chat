@@ -2,7 +2,6 @@ from langchain.embeddings.openai import OpenAIEmbeddings
 import openai
 
 from chatup_chat.core import Bot
-from chatup_chat.core.room.room import Room
 
 
 embeddings = OpenAIEmbeddings()
@@ -15,8 +14,7 @@ def get_user_query_embedding(query):
 MODEL_NAME = "gpt-3.5-turbo-16k"
 
 
-def chat_completion(room: Room, stream=True):
-    bot = room.bot
+def chat_completion(bot: Bot, stream=True):
     messages = bot.memory.get_messages()
     print(messages)
     completion = openai.ChatCompletion.create(
@@ -30,11 +28,17 @@ def chat_completion(room: Room, stream=True):
         for message in completion:
             delta = message.choices[0].delta
             if delta.get("content"):
-                room.ai_token_call_back(message.choices[0].delta.content)
+                if bot.response is None:
+                    bot.response = []
+                bot.response.append(message.choices[0].delta.content)
                 result.append(message.choices[0].delta.content)
     else:
-        room.ai_token_call_back(completion.choices[0].message.content)
+        if bot.response is None:
+            bot.response = []
+        bot.response.append(completion.choices[0].message.content)
         result.append(completion.choices[0].message.content)
+    bot.is_response_finished = True
+    response = "".join(result).strip()
+    print(response)
+    return response
 
-    room.ai_feedback_finished()
-    return "".join(result).strip()

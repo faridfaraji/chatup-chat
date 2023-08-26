@@ -1,18 +1,24 @@
 
 
 from dataclasses import dataclass
+import os
 from typing import Any
+from chatup_chat.adapter.analytics_client import ChatAnalyticsApiClient
 from chatup_chat.adapter.db_client import DatabaseApiClient
 from chatup_chat.core import Bot
 from chatup_chat.core.cache import RedisClusterJson
 from flask_socketio import emit
 from chatup_chat.core.message_enums import MessageType
+from chatup_chat.core.quality_bot import CategoryBot, QualityBot
 from chatup_chat.core.util import save_message
 from chatup_chat.models.message import Message
+from chatup_chat.core.memory import Memory
 
+CONVERSATION_ANALYSIS = (os.getenv("CONVERSATION_ANALYSIS", "True") == "True")
 
 cache = RedisClusterJson()
 db_client = DatabaseApiClient()
+chat_analytics = ChatAnalyticsApiClient()
 
 
 @dataclass
@@ -63,7 +69,15 @@ class Room:
 
     def user_says(self, message: Message):
         save_message(self, message)
-        self.bot.converse(self)
+        self.bot.converse()
+        result = ""
+        if self.bot.is_speaking:
+            result = "".join(self.bot.response)
+        elif self.bot.quality_bot.is_speaking:
+            result = "".join(self.bot.quality_bot.response)
+        emit("ai_response", result, namespace="/customer", to=self.occupant_session_id)
+        if CONVERSATION_ANALYSIS:
+            chat_analytics.submit_conversation_analytics(self.conversation_id)
         if self.admin_managed:
             emit("customer_response", {
                 "message": message.message,
@@ -72,6 +86,10 @@ class Room:
 
     def set_bot(self, bot: Bot):
         self.bot = bot
+        self.bot.quality_bot = QualityBot(memory=Memory())
+        self.bot.call_back_handler = self
+        self.bot.quality_bot.call_back_handler = self
+        self.bot.category_bot = CategoryBot(memory=Memory())
 
     def save(self):
         cache[f"room_{self.space_id}:{self.occupant_session_id}:{self.conversation_id}"] = self.to_dict()

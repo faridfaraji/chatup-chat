@@ -67,9 +67,9 @@ def connect():
 
     t = threading.Thread(target=input_thread)
     t.start()
-    t = threading.Thread(target=output_thread)
-    t.start()
-
+    t2 = threading.Thread(target=output_thread)
+    t2.start() 
+    
 
 if __name__ == '__main__':
     print()
