@@ -20,12 +20,13 @@ cache = RedisClusterJson()
 def initiate_conversation(room_manager: Manager, customer: dict):
     conv_id = customer["conversation_id"]
     shop_id = customer["shop_id"]
+    metadata = customer["metadata"]
     conversation = None
     if conv_id:
         try:
             conversation = db_client.get_conversation(conv_id)
         except HTTPError:
-            conv_id = db_client.add_conversation(shop_id)
+            conv_id = db_client.add_conversation(shop_id, metadata=metadata)
     else:
         conv_id = db_client.add_conversation(shop_id)
     bot_temperature = db_client.get_shop_temperature(shop_id)
