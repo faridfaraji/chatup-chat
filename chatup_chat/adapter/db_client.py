@@ -62,10 +62,11 @@ class DatabaseApiClient:
     def get_conversation(self, conversation_id):
         return self._make_request(requests.get, f"conversations/{conversation_id}")
 
-    def add_conversation(self, shop_id):
+    def add_conversation(self, shop_id, metadata={}):
         data = {
             "shop_id": shop_id,
-            "messages": []
+            "messages": [],
+            "metadata": metadata
         }
         return self._make_request(requests.post, "conversations", json=data)
 

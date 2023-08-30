@@ -42,7 +42,6 @@ class Customer(Namespace):
         room = room_manager.get_room_by_session(request.sid)
         customer_message = message_schema.load(data)
         customer_bot = load_chat_bot(conversation_id=customer_message["conversation_id"])
-        customer_bot.add_context(customer_message["message"])
         room.set_bot(customer_bot)
         room.user_says(
             Message(

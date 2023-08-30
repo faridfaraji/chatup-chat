@@ -5,7 +5,8 @@ from attr import define, field
 from chatup_chat.adapter.db_client import DatabaseApiClient
 
 from chatup_chat.core.cache import RedisClusterJson
-from chatup_chat.core.util import count_tokens_messages
+from chatup_chat.core.util import count_tokens_messages, load_message
+from chatup_chat.models.message import Message
 
 
 cache = RedisClusterJson()
@@ -53,8 +54,8 @@ class BotMemory(Memory):
             "content": prompt.format(negativeKeyWords=negative_keywords)
         }
 
-    def add_message(self, message: str):
-        self.messages.append(message)
+    def add_message(self, message: Message):
+        self.messages.append(message.to_dict())
         if count_tokens_messages(self.messages) > 12000:
             self.messages = self.messages[1:]
         MemoryManager.save_messages(self.bot, self.messages)
@@ -71,7 +72,7 @@ class BotMemory(Memory):
             messages.append(self.get_context())
         if self.summary:
             messages.append({"role": "system", "content": f"here is a summary of conversation so far: {self.summary}"})
-        messages.extend(self.messages)
+        messages.extend([load_message(Message.make_obj(msg)) for msg in self.messages])
         return messages
 
     def set_context(self, context: dict):

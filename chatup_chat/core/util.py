@@ -13,7 +13,7 @@ def count_tokens_messages(messages: List[dict]):
     encoding = tiktoken.encoding_for_model(MODEL_NAME)
     num_tokens = 0
     for msg in messages:
-        num_tokens += len(encoding.encode(msg["content"]))
+        num_tokens += len(encoding.encode(msg["message"]))
     return num_tokens
 
 
@@ -28,5 +28,5 @@ def load_message(message: Message):
 
 
 def save_message(room, message: Message):
-    room.bot.memory.add_message(load_message(message))
+    room.bot.memory.add_message(message)
     db_client.add_message(room.conversation_id, message)

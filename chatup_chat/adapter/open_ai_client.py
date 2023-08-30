@@ -16,7 +16,6 @@ MODEL_NAME = "gpt-3.5-turbo-16k"
 
 def chat_completion(bot: Bot, stream=True):
     messages = bot.memory.get_messages()
-    print(messages)
     completion = openai.ChatCompletion.create(
         model=MODEL_NAME,
         messages=messages,
@@ -41,4 +40,3 @@ def chat_completion(bot: Bot, stream=True):
     response = "".join(result).strip()
     print(response)
     return response
-

@@ -35,3 +35,17 @@ class CategoryBot(Bot):
             bot.speak()
         else:
             bot.quality_bot.speak()
+
+
+class LatestInquiryBot(Bot):
+
+    def check_inquiry(self, bot: Bot):
+        messages = [{"message": msg["message"], "role": msg["message_type"]} for msg in bot.memory.messages]
+        quality_check_message = {
+            "role": "user",
+            "content": f"Here is a conversation between a user and a customer support: '''{messages}'''. " \
+            "give me a clear and concise short summary of what the latest user inquiry is about."
+        }
+        self.memory.add_message(quality_check_message)
+        result = chat_completion(self, stream=False)
+        bot.memory.set_context_question(result)
