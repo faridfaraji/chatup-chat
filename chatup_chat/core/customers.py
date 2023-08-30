@@ -28,7 +28,7 @@ def initiate_conversation(room_manager: Manager, customer: dict):
         except HTTPError:
             conv_id = db_client.add_conversation(shop_id, metadata=metadata)
     else:
-        conv_id = db_client.add_conversation(shop_id)
+        conv_id = db_client.add_conversation(shop_id, metadata=metadata)
     bot_temperature = db_client.get_shop_temperature(shop_id)
     messages: Message = db_client.get_messages(conv_id)
     summary = None
