@@ -34,9 +34,9 @@ def validate_shopify_token():
         except session_token.SessionTokenError:
             # Log the error here
             logging.exception('ERROR')
-            print("Could not authenticate the session token")
-            disconnect()
-            raise Exception()
+            print(f"Could not authenticate the session token with key {api_key}")
+    disconnect()
+    raise Exception("Could not authenticate the session token with any of the keys")
 
 
 def authorize_admin(admin_manager):
