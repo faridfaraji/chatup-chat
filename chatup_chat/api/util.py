@@ -13,8 +13,8 @@ SHOPIFY_SECRET = os.environ.get('SHOPIFY_SECRET')
 SHOPIFY_API_KEY = os.environ.get('SHOPIFY_API_KEY')
 
 db_client = DatabaseApiClient()
-api_keys = SHOPIFY_SECRET.split(",")
-secrets = SHOPIFY_API_KEY.split(",")
+api_keys = SHOPIFY_API_KEY.split(",")
+secrets = SHOPIFY_SECRET.split(",")
 
 
 def validate_shopify_token():
