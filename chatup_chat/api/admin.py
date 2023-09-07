@@ -6,14 +6,12 @@ from chatup_chat.api.models.customer import AdminMessageSchema
 from chatup_chat.api.util import authorize_admin
 from chatup_chat.core.admin.admin_manager import AdminManager
 from chatup_chat.core.cache import RedisClusterJson
-from chatup_chat.core.chat import Chat
 from chatup_chat.core.loader import load_chat_bot
 from chatup_chat.core.message_enums import MessageType
 from chatup_chat.core.room.room_manager import RoomManager
 from chatup_chat.models.message import Message
 
 message_schema = AdminMessageSchema()
-chat = Chat()
 cache = RedisClusterJson()
 room_manager = RoomManager()
 admin_manager = AdminManager()

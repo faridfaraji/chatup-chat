@@ -12,7 +12,6 @@ from chatup_chat.core.util import load_message
 from chatup_chat.models.message import Message
 
 db_client = DatabaseApiClient()
-chat_analytics = ChatAnalyticsApiClient()
 CONVERSATIONS = {}
 cache = RedisClusterJson()
 
@@ -35,7 +34,7 @@ def initiate_conversation(room_manager: Manager, customer: dict):
     if conversation:
         summary = conversation["conversation_summary"]["summary"]
     processed_message = []
-    messages = [load_message(msg) for msg in messages]
+    messages = [msg.to_dict() for msg in messages]
 
     cache[conv_id] = {
         "conversation_id": conv_id,

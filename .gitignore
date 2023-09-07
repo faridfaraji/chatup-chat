@@ -4,5 +4,6 @@
 *playground.py*
 *dump.rdb*
 *.pyc*
+*.txt
 *cli*
 .env
