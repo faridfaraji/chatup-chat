@@ -16,6 +16,7 @@ class CustomerBot(Bot):
     quality_bot = field(default=None, kw_only=True)
     category_bot = field(default=None, kw_only=True)
     inquiry_bot = field(default=None, kw_only=True)
+    is_speaking = field(default=True, kw_only=True)
 
     def converse(self):
         self.response = []
