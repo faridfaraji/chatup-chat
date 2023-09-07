@@ -18,7 +18,7 @@ def chat_completion(bot: Bot, stream=True):
     messages = bot.memory.get_messages()
     print("============================")
     print(messages)
-    print("============================")
+    print(f"====={bot.model_name}====")
     completion = openai.ChatCompletion.create(
         model=bot.model_name,
         messages=messages,

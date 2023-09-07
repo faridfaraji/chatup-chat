@@ -9,7 +9,7 @@ from chatup_chat.core import Bot
 from chatup_chat.core.cache import RedisClusterJson
 from flask_socketio import emit
 from chatup_chat.core.message_enums import MessageType
-from chatup_chat.core.quality_bot import CategoryBot, LatestInquiryBot, QualityBot
+from chatup_chat.core.quality_bot import CategoryBot, FilterContext, LatestInquiryBot, QualityBot
 from chatup_chat.core.util import save_message
 from chatup_chat.models.message import Message
 from chatup_chat.core.memory import Memory
@@ -88,6 +88,7 @@ class Room:
         self.bot.quality_bot.call_back_handler = self
         self.bot.category_bot = CategoryBot(memory=Memory(), elder_bot=self.bot)
         self.bot.inquiry_bot = LatestInquiryBot(memory=Memory(), elder_bot=self.bot)
+        self.bot.filter_context = FilterContext(memory=Memory(), elder_bot=self.bot)
 
     def save(self):
         cache[f"room_{self.space_id}:{self.occupant_session_id}:{self.conversation_id}"] = self.to_dict()

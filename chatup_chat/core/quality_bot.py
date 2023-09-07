@@ -43,6 +43,10 @@ class CategoryBot(Bot):
         self.memory.add_message(quality_check_message)
         result = chat_completion(self, stream=False)
         print("CATEGORY: ", result)
+        if "ORDER" in result.upper():
+            bot.model_name = "gpt-4"
+        else:
+            bot.model_name = "gpt-3.5-turbo-16k"
         bot.speak()
         self.category = result
 
@@ -60,3 +64,17 @@ class LatestInquiryBot(Bot):
         result = chat_completion(self, stream=False)
         print("USER INQUIRY: ", result)
         bot.memory.set_context_question(result)
+
+
+class FilterContext(Bot):
+
+    def check_context(self, bot: Bot):
+        quality_check_message = {
+            "role": "user",
+            "content": f"Given that {bot.memory.context_question}. " \
+            f"Rewrite this document: ```{bot.memory.context}```. In a well formatted manner with only the information that relate to the user inquiry, dont make it longer than the original document."
+        }
+        self.memory.add_message(quality_check_message)
+        result = chat_completion(self, stream=False)
+        print("REWRITTEN CONTEXT: ", result)
+        # bot.memory.set_context_question(result)
