@@ -6,3 +6,4 @@
 *.pyc*
 *.txt
 *cli*
+.env

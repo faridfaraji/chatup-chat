@@ -12,6 +12,7 @@ dependencies:
   - pip
   - pytest
   - python=3.10
+  - python-dotenv
   - requests
   - werkzeug=2.1.2
   - tiktoken
