@@ -44,10 +44,6 @@ class CategoryBot(Bot):
         result = chat_completion(self, stream=False)
         print("CATEGORY: ", result)
         bot.speak()
-        if "PRODUCTS" in result.upper() or "ORDER" in result.upper() or "PAYMENT" in result.upper():
-            bot.model_name = "gpt-4"
-        else:
-            bot.model_name = "gpt-3.5-turbo-16k"
         self.category = result
 
 
