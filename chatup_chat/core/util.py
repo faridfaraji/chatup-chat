@@ -22,7 +22,7 @@ def load_message(message: Message):
         if message.metadata and "admin" in message.metadata:
             return {"role": "user", "content": f"admin says: {message.message}"}
         else:
-            return {"role": "user", "content": f"customer asks: {message.message}"}
+            return {"role": "user", "content": f"customer says: {message.message}"}
     elif message.message_type == MessageType.AI.value:
         return {"role": "assistant", "content": message.message}
 

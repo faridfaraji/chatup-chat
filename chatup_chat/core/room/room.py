@@ -70,12 +70,8 @@ class Room:
     def user_says(self, message: Message):
         save_message(self, message)
         self.bot.converse()
-        result = ""
-        if self.bot.is_speaking:
-            result = "".join(self.bot.response)
-        elif self.bot.quality_bot.is_speaking:
-            result = "".join(self.bot.quality_bot.response)
-        emit("ai_response", result, namespace="/customer", to=self.occupant_session_id)
+        # result = "".join(self.bot.response)
+        # emit("ai_response", result, namespace="/customer", to=self.occupant_session_id)
         if CONVERSATION_ANALYSIS:
             chat_analytics.submit_conversation_analytics(self.conversation_id)
         if self.admin_managed:
@@ -86,11 +82,12 @@ class Room:
 
     def set_bot(self, bot: Bot):
         self.bot = bot
-        self.bot.quality_bot = QualityBot(memory=Memory())
+        self.bot.elder_bot = self.bot
+        self.bot.quality_bot = QualityBot(memory=Memory(), elder_bot=self.bot)
         self.bot.call_back_handler = self
         self.bot.quality_bot.call_back_handler = self
-        self.bot.category_bot = CategoryBot(memory=Memory())
-        self.bot.inquiry_bot = LatestInquiryBot(memory=Memory())
+        self.bot.category_bot = CategoryBot(memory=Memory(), elder_bot=self.bot)
+        self.bot.inquiry_bot = LatestInquiryBot(memory=Memory(), elder_bot=self.bot)
 
     def save(self):
         cache[f"room_{self.space_id}:{self.occupant_session_id}:{self.conversation_id}"] = self.to_dict()

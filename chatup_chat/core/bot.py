@@ -1,9 +1,12 @@
 
 
+import threading
 from attr import define, field
 from chatup_chat.adapter.db_client import DatabaseApiClient
 from chatup_chat.adapter.open_ai_client import chat_completion, get_user_query_embedding
 from chatup_chat.core import Bot
+from chatup_chat.core.message_enums import MessageType
+from chatup_chat.models.message import Message
 
 db_client = DatabaseApiClient()
 
@@ -15,11 +18,19 @@ class CustomerBot(Bot):
     inquiry_bot = field(default=None, kw_only=True)
 
     def converse(self):
+        self.response = []
         self.inquiry_bot.check_inquiry(self)
         self.add_context()
         self.category_bot.check_category(self)
         result = chat_completion(self)
-        self.quality_bot.check_quality(result, self)
+        print("CUSTOMER ASSISTANT: ", result)
+        # if self.quality_bot.is_speaking:
+        #     self.quality_bot.check_quality(result, self)
+        self.memory.add_message(Message(
+            message=result,
+            message_type=MessageType.AI.value
+        ))
+        self.call_back_handler.ai_feedback_finished()
         return result
 
     def add_context(self):

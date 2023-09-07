@@ -66,8 +66,8 @@ def connect():
     sio.emit('init', init_payload, namespace='/customer')
 
     t = threading.Thread(target=input_thread)
-    t.start()
     t2 = threading.Thread(target=output_thread)
+    t.start()
     t2.start() 
     
 
