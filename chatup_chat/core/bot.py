@@ -21,11 +21,8 @@ class CustomerBot(Bot):
         self.response = []
         self.inquiry_bot.check_inquiry(self)
         self.add_context()
-        self.category_bot.check_category(self)
         result = chat_completion(self)
         print("CUSTOMER ASSISTANT: ", result)
-        # if self.quality_bot.is_speaking:
-        #     self.quality_bot.check_quality(result, self)
         self.memory.add_message(Message(
             message=result,
             message_type=MessageType.AI.value
