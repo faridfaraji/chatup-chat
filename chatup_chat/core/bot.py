@@ -16,11 +16,13 @@ class CustomerBot(Bot):
     quality_bot = field(default=None, kw_only=True)
     category_bot = field(default=None, kw_only=True)
     inquiry_bot = field(default=None, kw_only=True)
+    filter_context = field(default=None, kw_only=True)
     is_speaking = field(default=True, kw_only=True)
 
     def converse(self):
         self.response = []
         self.inquiry_bot.check_inquiry(self)
+        self.category_bot.check_category(self)
         self.add_context()
         result = chat_completion(self)
         print("CUSTOMER ASSISTANT: ", result)
