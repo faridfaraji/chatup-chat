@@ -1,0 +1,9 @@
+
+USER: hi 
+AI: Hello! How can I assist you today?
+USER: I need some new shirts 
+AI: We have a variety of shirts. What kind are you looking for?
+USER: red shirt 
+AI: Apologies for the confusion, but we need more information to assist you with your request for a red shirt.
+USER: exit 
+AI: 

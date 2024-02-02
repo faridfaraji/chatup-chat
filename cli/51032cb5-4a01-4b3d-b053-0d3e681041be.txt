@@ -1,0 +1,7 @@
+
+USER: hi 
+AI: I dont have enough information to answer that please contact the store.
+USER: do you have milk? 
+AI: I dont have enough information to answer that please contact the store
+USER: exit 
+AI: 

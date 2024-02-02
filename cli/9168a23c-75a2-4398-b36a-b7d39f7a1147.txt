@@ -1,0 +1,5 @@
+
+USER: hi 
+AI: Hello! How can I assist you today?
+USER: I would like to buy an ice cream 
+AI: I'm sorry, but as an online store, we don't sell perishable items like ice cream. However, we have a wide range of other products available for purchase. Is there anything else I can help you with?

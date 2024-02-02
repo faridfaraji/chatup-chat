@@ -1,0 +1,21 @@
+
+USER: hi 
+AI: Hello! How can I assist you today?
+USER: how are you? 
+AI: Thank you for asking! As an AI assistant, I don't have feelings, but I'm here to help you with any questions or concerns you may have. How can I assist you today?
+USER: what do you sell? 
+AI: We sell a variety of products in the Health & Beauty category. This includes items such as skincare products, cosmetics, hair care products, personal care items, and more. If you have any specific product in mind or need assistance with finding something, feel free to let me know!
+USER: give me some product recommendations for beauty 
+AI: Of course! Here are a few beauty product recommendations:
+
+1. Australian Gold Adorably Black (8.5oz): This bronzer blends DHA flawlessly with natural bronzers for a stunning dark tan. It also contains beet root and raspberry extracts to improve skin tone and combat free radicals. [Product Link](ship131290.myshopify.com/products/adorably-black-8-5oz)
+
+2. Australian Gold Botanical Tinted Face Rich-Deep SPF 50 (3oz): This tinted face sunscreen provides SPF 50 protection while giving your skin a rich, deep tint. It is gluten-free, hypoallergenic, and paraben-free. [Product Link](ship131290.myshopify.com/products/botanical-tinted-face-rich-deep-spf-50-3oz)
+
+3. Australian Gold Crystal Faces (1oz): This facial product offers advanced skincare with a silicone formula. It provides a natural-looking tan while keeping your skin moisturized. [Product Link](ship131290.myshopify.com/products/crystal-faces-1oz)
+
+Please let me know if you need more information about any of these products or if there's anything else I can assist you with!
+USER:  
+AI: 
+USER: exit 
+AI: 

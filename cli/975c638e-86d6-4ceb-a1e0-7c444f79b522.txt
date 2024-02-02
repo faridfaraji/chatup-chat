@@ -1,0 +1,15 @@
+
+USER: hi 
+AI: Hello! How can I assist you today?
+USER: i need new stuff 
+AI: Hello! Thank you for reaching out. We have a wide range of products available in our store. Could you please let me know what specific items you are looking for? I'll be happy to assist you in finding the perfect new stuff!
+USER: milk 
+AI: I'm sorry, but we don't sell perishable goods like milk. Is there anything else I can help you with?
+USER: can I track my order? 
+AI: Sure! Please provide me with your order number so that I can assist you in tracking your order.
+USER: 1004 
+AI: Certainly! I can help you track your order. Please provide me with your order number.
+USER:  
+AI: 
+USER:  
+AI: 

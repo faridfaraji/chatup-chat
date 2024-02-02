@@ -1,0 +1,21 @@
+
+USER: hi 
+AI: Hello! How can I assist you today?
+USER: i need new stuff 
+AI: Hello! Thank you for reaching out. I'd be happy to assist you in finding new items. Could you please provide me with more details about what you're looking for? Are you interested in a specific category of products or do you have any preferences in mind? Let me know, and I'll do my best to help you find what you need!
+
+Regarding our return policy, please note that we accept returns for defective, damaged, or incorrect items. If you encounter any of these issues, please inspect your order upon reception and contact us immediately. However, there are certain exceptions to our return policy. Perishable goods, custom products, personal care goods, hazardous materials, flammable liquids, gases, sale items, and gift cards cannot be returned.
+
+If you wish to exchange an item, the fastest way is to return the item you have and make a separate purchase for the new item.
+
+If you have any specific questions or concerns about your order or our return policy, please feel free to reach out to us at test@chatup.com. We're here to help!
+USER:  
+AI: 
+USER:  
+AI: 
+USER:  
+AI: 
+USER: exit 
+AI: 
+USER:  
+AI: 

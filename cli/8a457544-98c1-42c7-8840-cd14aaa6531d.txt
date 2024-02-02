@@ -1,0 +1,15 @@
+
+USER: hi 
+AI: Hello! How can I assist you today?
+USER: I need assistant urgently 
+AI: Of course! I'm here to help. What seems to be the issue?
+USER: How can i track my order? 
+AI: You can track your order using the Order Status URL provided with your order information.
+USER: can you send me the link to my order tracker? 
+AI: Sure! To track your order, please use this link: [Order Status](chatup-demo.myshopify.com/78988706084/orders/64e070af66d2b68d1912d1cc3363ed9c/authenticate?key=9d3318b4e6eef3d53799bd44c60da279). Let me know if you need further assistance!
+USER:  
+AI: 
+USER:  
+AI: 
+USER: exit 
+AI: 

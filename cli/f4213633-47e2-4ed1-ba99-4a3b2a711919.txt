@@ -1,0 +1,7 @@
+
+USER: hi 
+AI: GeneralHello! How can I assist you today?General
+USER: hi 
+AI: GeneralHello! How can I assist you today?GeneralGeneralHello! How can I assist you today?Other
+USER: exit 
+AI: 

@@ -1,0 +1,13 @@
+
+USER: hi 
+AI: Hello! How can I assist you today?
+USER: I need new stuff 
+AI: Hello! Thank you for reaching out. I'd be happy to assist you with finding new items. Could you please let me know what type of products you are looking for? Please note that our return policy states that certain items cannot be returned, such as perishable goods, custom products, personal care goods, hazardous materials, flammable liquids, or gases. Additionally, we do not accept returns on sale items or gift cards. If you have any questions or concerns about your specific item, please feel free to contact us.
+USER:  
+AI: 
+USER:  
+AI: 
+USER:  
+AI: 
+USER: exit 
+AI: 

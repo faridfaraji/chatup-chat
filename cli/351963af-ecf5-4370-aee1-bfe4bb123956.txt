@@ -1,0 +1,27 @@
+
+USER: hi 
+AI: Hello! How can I assist you today?
+USER: I need something 
+AI: Of course! I'd be happy to help you find what you need. Could you please provide me with more details about what you're looking for?
+USER: I need to buy some new stuff 
+AI: That's great! Could you please specify the items you're interested in?
+USER: Actually nevermind i wanna track my order 
+AI: I understand. Please click on the Order Status URL in your order confirmation email to track your order.
+USER: can you track my order? 
+AI: Sure, I can assist you. Please provide your order number.
+USER: 1005 
+AI: Thank you for your patience. You can track your order 1005 at this URL: chatup-demo.myshopify.com/78988706084/orders/87132fe12a861d2cec630615d66c7993/authenticate?key=fdb96a32ad73834362d1434a756cd214
+USER: I wanna pay my order with bitcoin how can i do that? 
+AI: I apologize for any inconvenience, but currently, we do not accept Bitcoin as a payment method. We offer other secure payment options such as credit/debit cards, PayPal, and bank transfers. If you need assistance with the payment process, please let me know.
+USER: how can i bank transfer? 
+AI: To make a bank transfer for your order, please follow these steps:
+
+1. During the checkout process, select the "Bank Transfer" option as your payment method.
+2. After placing your order, you will receive an order confirmation email with our bank account details.
+3. Use these bank account details to initiate a transfer from your bank account to ours. Please make sure to include your order number in the transfer description for easy identification.
+4. Once the transfer is complete, please allow some time for the payment to be processed and verified.
+5. Once the payment is confirmed, we will proceed with processing and shipping your order.
+
+If you have any specific questions or need further assistance with the bank transfer process, please let me know.
+USER:  
+AI: 

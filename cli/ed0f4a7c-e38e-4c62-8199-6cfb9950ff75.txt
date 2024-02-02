@@ -1,0 +1,5 @@
+
+USER: hi 
+AI: Hello! How can I assist you today?
+USER: i have issues 
+AI: Of course! I'm here to help. Please provide more specific details about the issues you are experiencing, or contact us directly for further assistance.

@@ -1,0 +1,7 @@
+
+USER: waar is mijn bestelling 
+AI: Natuurlijk, ik help u graag met het vinden van uw bestelling. Kunt u mij alstublieft uw bestelnummer geven?
+USER:  
+AI: Ik begrijp dat u op zoek bent naar uw bestelling. Kunt u mij alstublieft uw bestelnummer geven? Dit helpt me om uw bestelling te vinden.
+USER: 1009 
+AI: Bedankt voor het verstrekken van uw bestelnummer. U kunt de status van uw bestelling bekijken door op de volgende link te klikken: [Order Status](https://chatup-demo.myshopify.com/78988706084/orders/5833a64706a730ddd77f41331161508d/authenticate?key=e1b0a59abc12678d12002483683ffbb4). Als u nog andere vragen heeft, laat het me dan weten.

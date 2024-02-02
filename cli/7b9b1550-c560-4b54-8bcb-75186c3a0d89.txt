@@ -1,0 +1,9 @@
+
+USER: hi 
+AI: Hello! How can I assist you today?
+USER: i need help 
+AI: Of course! I'm here to help. What do you need assistance with?
+USER: exit 
+AI: 
+USER:  
+AI: 

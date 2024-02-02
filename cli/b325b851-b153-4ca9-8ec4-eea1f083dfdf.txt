@@ -1,0 +1,7 @@
+
+USER: hi 
+AI: Hello! How can I assist you today?
+USER: what do you sell? 
+AI: We sell a variety of products, including electronics, computers, and accessories. Is there a specific category or product you are interested in?
+USER: any cheap computer? 
+AI: Yes, we have some affordable computer options available. One option is the "Home / Office PC - Celeron ™ 10th G5900 - 4GB - 120GB SSD + 1TB HDD - W10 - Incl. Muis en TB" priced at 449.0. It features an Intel Celeron G5900 processor, 4GB of RAM, a 120GB SSD, and a 1TB HDD. You can find more details about this computer [here](computernl.myshopify.com/products/delta-desktop-pc-celeron-™-10th-g5900-4gb-120gb-ssd-1tb-hdd-w10-incl-muis-en-tb). Let me know if you need any further assistance!

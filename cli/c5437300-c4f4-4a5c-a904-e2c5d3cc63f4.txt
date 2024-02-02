@@ -1,0 +1,11 @@
+
+USER: wat verkoen jullie 
+AI: Hallo! We verkopen verschillende producten, waaronder elektronica. Kun je me specifieker vertellen naar welk soort product je op zoek bent? Dan kan ik je gerichter helpen.
+USER: I need to track my order 
+AI: Hello! I can help you track your order. Could you please provide me with your order number?
+USER: 1010 
+AI: Thank you for providing your order number. I'm sorry, but I couldn't find any information about order number 1010 in our system. It's possible that the order hasn't been processed yet or there might be a mistake in the number. 
+
+To get more accurate information about your order, I recommend contacting our customer support team directly. You can reach them by phone at +31582045115 or by email at info@computer.nl. They will be able to assist you further with tracking your order.
+USER: exit 
+AI: 

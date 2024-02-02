@@ -1,0 +1,7 @@
+
+USER: waar is mijn bestelling? 
+AI: Ik begrijp dat u graag wilt weten waar uw bestelling is. Helaas, als een AI-ondersteuningsagent, heb ik geen toegang tot persoonlijke bestelinformatie. Ik raad u aan om rechtstreeks contact op te nemen met de winkel voor bijgewerkte informatie over uw bestelling.
+USER: wat verkoen jullie? 
+AI: Onze winkel verkoopt een breed scala aan elektronica, waaronder computers en desktopcomputers. Een paar van onze producten zijn bijvoorbeeld de Trust GXT 180 Kusan en de Trust GXT 210. U kunt deze producten bekijken op onze website via de volgende links: [Trust GXT 180 Kusan](computernl.myshopify.com/products/trust-gxt-180-kusan) en [Trust GXT 210](computernl.myshopify.com/products/trust-gxt-210).
+USER:  
+AI: 

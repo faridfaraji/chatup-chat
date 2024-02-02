@@ -1,0 +1,11 @@
+
+USER: hi 
+AI: Hello! How can I assist you today?
+USER: i need new stuff 
+AI: Hello! Thank you for reaching out. I'd be happy to assist you in finding new items. Could you please provide me with more details about what you're looking for? Are you interested in a specific category of products or do you have any preferences? Let me know so I can help you better.
+
+Based on the provided document, I would recommend the following response:
+
+Hello! Thank you for reaching out. I'd be happy to assist you in finding new items. Could you please provide me with more details about what you're looking for? Are you interested in a specific category of products or do you have any preferences? Please note that certain items cannot be returned, such as perishable goods, custom products, personal care goods, hazardous materials, flammable liquids, or gases. If you have any questions or concerns about your specific item, please let me know. Let me know so I can help you better.
+USER:  
+AI: 

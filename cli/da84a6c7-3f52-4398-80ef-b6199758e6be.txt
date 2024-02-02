@@ -1,0 +1,9 @@
+
+USER: hi 
+AI: Hello! How can I assist you today?
+USER: i have some questions 
+AI: Of course! I'm here to help. What questions do you have?
+USER: Do you accept bank transfer as payment? 
+AI: I'm sorry for the confusion, but based on the information provided, we cannot confirm that we accept bank transfers as a payment method. If you have any further questions or need assistance, please let us know.
+USER: exit 
+AI: 

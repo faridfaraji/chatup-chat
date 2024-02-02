@@ -1,0 +1,5 @@
+
+USER: what is the store contact information? 
+AI: Thank you for reaching out to us! You can contact our store by emailing us at rasoul1377@gmail.com. If you have any questions or need assistance, please don't hesitate to reach out. We're here to help!
+USER: exit 
+AI: 

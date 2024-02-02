@@ -1,0 +1,17 @@
+
+USER: hi 
+AI: "Hello! How can I assist you today?"
+USER:  
+AI: 
+USER:  
+AI: 
+USER:  
+AI: 
+USER:  
+AI: 
+USER: exitr 
+AI: 
+USER: exit 
+AI: 
+USER:  
+AI: 

@@ -1,0 +1,13 @@
+
+USER: hi 
+AI: Hello! How can I assist you today?
+USER: I need to track my order 
+AI: Sure, I can assist you. Please share your order number.
+USER: 1005 
+AI: Thank you for your order number. You can track it using this URL: chatup-demo.myshopify.com/78988706084/orders/87132fe12a861d2cec630615d66c7993/authenticate?key=fdb96a32ad73834362d1434a756cd214
+USER: I have a question about returning something  
+AI: Sure, I can help with your return query. Please note, we have a 30-day return policy. Contact us at test@chatup.com to initiate the process.
+USER: exit 
+AI: 
+USER:  
+AI: 

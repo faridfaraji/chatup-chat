@@ -1,0 +1,117 @@
+t=2023-06-06T21:03:32-0400 lvl=info msg="no configuration paths supplied"
+t=2023-06-06T21:03:32-0400 lvl=info msg="using configuration at default config path" path="/Users/farid/Library/Application Support/ngrok/ngrok.yml"
+t=2023-06-06T21:03:32-0400 lvl=info msg="open config file" path="/Users/farid/Library/Application Support/ngrok/ngrok.yml" err=nil
+t=2023-06-06T21:03:32-0400 lvl=warn msg="can't bind default web address, trying alternatives" obj=web addr=127.0.0.1:4040
+t=2023-06-06T21:03:32-0400 lvl=info msg="starting web service" obj=web addr=127.0.0.1:4041 allow_hosts=[]
+t=2023-06-06T21:03:32-0400 lvl=eror msg="failed to reconnect session" obj=tunnels.session obj=csess id=1c3073fa463f err="authentication failed: Your account is limited to 1 simultaneous ngrok agent session.\nYou can run multiple tunnels on a single agent session using a configuration file.\nTo learn more, see https://ngrok.com/docs/ngrok-agent/config/\n\nActive ngrok agent sessions in region 'us':\n  - ts_2Qr742N9CJyEIF78CjHDiP3UbIc (2607:fa49:d945:5300:39b2:bf2:7009:c28e)\r\n\r\nERR_NGROK_108\r\n"
+t=2023-06-06T21:03:32-0400 lvl=info msg="update available" obj=updater
+t=2023-06-06T21:03:32-0400 lvl=eror msg="session closing" obj=tunnels.session err="authentication failed: Your account is limited to 1 simultaneous ngrok agent session.\nYou can run multiple tunnels on a single agent session using a configuration file.\nTo learn more, see https://ngrok.com/docs/ngrok-agent/config/\n\nActive ngrok agent sessions in region 'us':\n  - ts_2Qr742N9CJyEIF78CjHDiP3UbIc (2607:fa49:d945:5300:39b2:bf2:7009:c28e)\r\n\r\nERR_NGROK_108\r\n"
+t=2023-06-06T21:03:32-0400 lvl=info msg="received stop request" obj=app stopReq="{err:{Remote:true Inner:0x140006b80b0} restart:false}"
+t=2023-06-06T21:03:32-0400 lvl=eror msg="terminating with error" obj=app err="authentication failed: Your account is limited to 1 simultaneous ngrok agent session.\nYou can run multiple tunnels on a single agent session using a configuration file.\nTo learn more, see https://ngrok.com/docs/ngrok-agent/config/\n\nActive ngrok agent sessions in region 'us':\n  - ts_2Qr742N9CJyEIF78CjHDiP3UbIc (2607:fa49:d945:5300:39b2:bf2:7009:c28e)\r\n\r\nERR_NGROK_108\r\n"
+t=2023-06-06T21:03:32-0400 lvl=crit msg="command failed" err="authentication failed: Your account is limited to 1 simultaneous ngrok agent session.\nYou can run multiple tunnels on a single agent session using a configuration file.\nTo learn more, see https://ngrok.com/docs/ngrok-agent/config/\n\nActive ngrok agent sessions in region 'us':\n  - ts_2Qr742N9CJyEIF78CjHDiP3UbIc (2607:fa49:d945:5300:39b2:bf2:7009:c28e)\r\n\r\nERR_NGROK_108\r\n"
+t=2023-06-06T21:03:32-0400 lvl=info msg="no more state changes" obj=tunnels.session
+NAME:
+  http - start an HTTP tunnel
+
+USAGE:
+  ngrok http [address:port | port] [flags]
+
+DESCRIPTION: 
+  Starts a tunnel listening for HTTP/HTTPS traffic with a specific hostname.
+  The HTTP Host header on incoming public requests is inspected to
+  determine which tunnel it matches.
+
+  HTTPS endpoints terminate TLS traffic at the ngrok server using the
+  appropriate certificates. The decrypted, HTTP traffic is then forwarded
+  through the secure tunnel and then to your local server. If you don't want
+  your TLS traffic to termint=2023-06-06T21:03:35-0400 lvl=info msg="join connections" obj=join id=11a651828ae2 l=127.0.0.1:8002 r=[2607:fa49:d945:5300:39b2:bf2:7009:c28e]:55373
+t=2023-06-06T21:03:53-0400 lvl=info msg="join connections" obj=join id=0d0377585c55 l=127.0.0.1:8002 r=74.58.79.12:55420
+t=2023-06-06T21:06:33-0400 lvl=info msg="join connections" obj=join id=559c5570d40e l=127.0.0.1:8002 r=[2607:fa49:d945:5300:39b2:bf2:7009:c28e]:55373
+t=2023-06-06T21:14:00-0400 lvl=info msg="join connections" obj=join id=4aff5a488480 l=127.0.0.1:8002 r=[2607:fa49:d945:5300:39b2:bf2:7009:c28e]:57527
+t=2023-06-06T21:15:27-0400 lvl=info msg="join connections" obj=join id=5d3251f9e9f4 l=127.0.0.1:8002 r=[2607:fa49:d945:5300:39b2:bf2:7009:c28e]:57878
+t=2023-06-06T21:16:08-0400 lvl=info msg="join connections" obj=join id=9e99d130d26d l=127.0.0.1:8002 r=[2607:fa49:d945:5300:39b2:bf2:7009:c28e]:58046
+t=2023-06-06T21:51:02-0400 lvl=info msg="join connections" obj=join id=52cfe1c253c4 l=127.0.0.1:8002 r=74.58.79.12:50160
+t=2023-06-06T21:57:16-0400 lvl=info msg="join connections" obj=join id=dd8f2e93adf3 l=127.0.0.1:8002 r=[2607:fa49:d945:5300:39b2:bf2:7009:c28e]:52078
+t=2023-06-06T22:07:35-0400 lvl=info msg="join connections" obj=join id=33c6b86cd7b5 l=127.0.0.1:8002 r=[2607:fa49:d945:5300:39b2:bf2:7009:c28e]:54623
+t=2023-06-06T22:08:10-0400 lvl=info msg="join connections" obj=join id=6638ef5412a5 l=127.0.0.1:8002 r=[2607:fa49:d945:5300:39b2:bf2:7009:c28e]:54770
+t=2023-06-06T22:09:37-0400 lvl=info msg="join connections" obj=join id=dc00daf548a7 l=127.0.0.1:8002 r=[2607:fa49:d945:5300:39b2:bf2:7009:c28e]:55123
+t=2023-06-06T22:12:55-0400 lvl=info msg="join connections" obj=join id=08e23c453463 l=127.0.0.1:8002 r=[2607:fa49:d945:5300:39b2:bf2:7009:c28e]:55927
+t=2023-06-06T23:03:09-0400 lvl=info msg=start pg=/ id=94057600d88d8888
+t=2023-06-06T23:03:09-0400 lvl=info msg=end pg=/ id=94057600d88d8888 status=302 dur=284µs
+t=2023-06-06T23:03:09-0400 lvl=info msg=start pg=/inspect/http id=443b7a18f16d75bf
+t=2023-06-06T23:03:09-0400 lvl=info msg=end pg=/inspect/http id=443b7a18f16d75bf status=200 dur=1.396042ms
+t=2023-06-06T23:03:09-0400 lvl=info msg=start pg=/static/css/app.fe878db551fb56227c48.css id=00d6b02f24e1419b
+t=2023-06-06T23:03:09-0400 lvl=info msg=end pg=/static/css/app.fe878db551fb56227c48.css id=00d6b02f24e1419b status=304 dur=1.016584ms
+t=2023-06-06T23:03:09-0400 lvl=info msg=start pg=/static/js/vendor.29109f3a578dc3b2a02b.js id=38c1658517a41d8e
+t=2023-06-06T23:03:09-0400 lvl=info msg=start pg=/static/js/rpx.995b4951c0fd6b1fa875.js id=5f6c800ae0151c1e
+t=2023-06-06T23:03:09-0400 lvl=info msg=start pg=/static/js/app.de0db28a880159d23688.js id=01135d99ffbe166c
+t=2023-06-06T23:03:09-0400 lvl=info msg=end pg=/static/js/rpx.995b4951c0fd6b1fa875.js id=5f6c800ae0151c1e status=304 dur=288.167µs
+t=2023-06-06T23:03:09-0400 lvl=info msg=end pg=/static/js/app.de0db28a880159d23688.js id=01135d99ffbe166c status=304 dur=809.458µs
+t=2023-06-06T23:03:09-0400 lvl=info msg=end pg=/static/js/vendor.29109f3a578dc3b2a02b.js id=38c1658517a41d8e status=200 dur=21.726792ms
+t=2023-06-06T23:03:09-0400 lvl=info msg=start pg=/grpc/agent.Web/Preloaded id=a28b752d8ef828d3
+t=2023-06-06T23:03:09-0400 lvl=info msg=start pg=/grpc/agent.Web/State id=01504f97012ce5e1
+t=2023-06-06T23:03:09-0400 lvl=info msg=end pg=/grpc/agent.Web/Preloaded id=a28b752d8ef828d3 status=200 dur=1.042958ms
+t=2023-06-06T23:03:09-0400 lvl=info msg=start pg=/static/assets/glyphicons-halflings-regular.woff2 id=248ac21a6df485e0
+t=2023-06-06T23:03:09-0400 lvl=info msg=end pg=/static/assets/glyphicons-halflings-regular.woff2 id=248ac21a6df485e0 status=304 dur=190.166µs
+t=2023-06-06T23:03:16-0400 lvl=info msg=start pg=/ id=61b8fbbe70208741
+t=2023-06-06T23:03:16-0400 lvl=info msg=end pg=/ id=61b8fbbe70208741 status=302 dur=112.834µs
+t=2023-06-06T23:03:16-0400 lvl=info msg=start pg=/inspect/http id=290b364e64e3a63b
+t=2023-06-06T23:03:16-0400 lvl=info msg=end pg=/inspect/http id=290b364e64e3a63b status=200 dur=319.042µs
+t=2023-06-06T23:03:16-0400 lvl=info msg=start pg=/grpc/agent.Web/Preloaded id=236f2ccaf583b8db
+t=2023-06-06T23:03:16-0400 lvl=info msg=start pg=/grpc/agent.Web/State id=bdb7141d594b9d5a
+t=2023-06-06T23:03:16-0400 lvl=info msg=end pg=/grpc/agent.Web/Preloaded id=236f2ccaf583b8db status=200 dur=577.542µs
+t=2023-06-06T23:03:17-0400 lvl=info msg=end pg=/grpc/agent.Web/State id=01504f97012ce5e1 status=200 dur=8.067041833s
+t=2023-06-06T23:03:38-0400 lvl=info msg=end pg=/grpc/agent.Web/State id=bdb7141d594b9d5a status=200 dur=21.698312625s
+t=2023-06-06T23:06:53-0400 lvl=info msg=start pg=/ id=a28b90e69237270f
+t=2023-06-06T23:06:53-0400 lvl=info msg=end pg=/ id=a28b90e69237270f status=302 dur=730.791µs
+t=2023-06-06T23:06:53-0400 lvl=info msg=start pg=/inspect/http id=4bcc7a6c15006cf0
+t=2023-06-06T23:06:53-0400 lvl=info msg=end pg=/inspect/http id=4bcc7a6c15006cf0 status=200 dur=760.166µs
+t=2023-06-06T23:06:53-0400 lvl=info msg=start pg=/grpc/agent.Web/Preloaded id=905d73b8439a41dc
+t=2023-06-06T23:06:53-0400 lvl=info msg=start pg=/grpc/agent.Web/State id=2e586534da7ca15f
+t=2023-06-06T23:06:53-0400 lvl=info msg=end pg=/grpc/agent.Web/Preloaded id=905d73b8439a41dc status=200 dur=810.5µs
+t=2023-06-06T23:07:05-0400 lvl=info msg=start pg=/grpc/agent.Web/Clear id=d85456c4753342e5
+t=2023-06-06T23:07:05-0400 lvl=info msg=end pg=/grpc/agent.Web/Clear id=d85456c4753342e5 status=200 dur=854.417µs
+t=2023-06-06T23:07:18-0400 lvl=info msg=start pg=/inspect/http id=0ff1ce472dec1466
+t=2023-06-06T23:07:18-0400 lvl=info msg=end pg=/inspect/http id=0ff1ce472dec1466 status=200 dur=589.125µs
+t=2023-06-06T23:07:18-0400 lvl=info msg=end pg=/grpc/agent.Web/State id=2e586534da7ca15f status=200 dur=24.698743625s
+t=2023-06-06T23:07:18-0400 lvl=info msg=start pg=/grpc/agent.Web/Preloaded id=74f51169e6d39bb2
+t=2023-06-06T23:07:18-0400 lvl=info msg=start pg=/grpc/agent.Web/State id=d56d46675c91a80f
+t=2023-06-06T23:07:18-0400 lvl=info msg=end pg=/grpc/agent.Web/Preloaded id=74f51169e6d39bb2 status=200 dur=408.75µs
+t=2023-06-06T23:07:18-0400 lvl=info msg=start pg=/static/favicon.ico id=c8beb882f5e41882
+t=2023-06-06T23:07:18-0400 lvl=info msg=end pg=/static/favicon.ico id=c8beb882f5e41882 status=304 dur=118.833µs
+t=2023-06-06T23:07:23-0400 lvl=info msg="join connections" obj=join id=f2b0d03b2b24 l=127.0.0.1:8002 r=[2607:fa49:d945:5300:39b2:bf2:7009:c28e]:53604
+t=2023-06-06T23:07:26-0400 lvl=info msg=start pg=/inspect/http id=60414da8245d55ae
+t=2023-06-06T23:07:26-0400 lvl=info msg=end pg=/inspect/http id=60414da8245d55ae status=200 dur=309.333µs
+t=2023-06-06T23:07:26-0400 lvl=info msg=start pg=/grpc/agent.Web/Preloaded id=057d57477e3ef16d
+t=2023-06-06T23:07:26-0400 lvl=info msg=start pg=/grpc/agent.Web/State id=283ed40d85bb258f
+t=2023-06-06T23:07:26-0400 lvl=info msg=end pg=/grpc/agent.Web/Preloaded id=057d57477e3ef16d status=200 dur=507.208µs
+t=2023-06-06T23:07:27-0400 lvl=info msg=end pg=/grpc/agent.Web/State id=d56d46675c91a80f status=200 dur=8.956788625s
+t=2023-06-06T23:09:20-0400 lvl=info msg=start pg=/inspect/http id=271d74d2c6daf7f0
+t=2023-06-06T23:09:20-0400 lvl=info msg=end pg=/inspect/http id=271d74d2c6daf7f0 status=200 dur=526.333µs
+t=2023-06-06T23:09:20-0400 lvl=info msg=start pg=/grpc/agent.Web/Preloaded id=dd06c79dd17e18df
+t=2023-06-06T23:09:20-0400 lvl=info msg=start pg=/grpc/agent.Web/State id=3e0b20e0abdc2e2b
+t=2023-06-06T23:09:20-0400 lvl=info msg=end pg=/grpc/agent.Web/Preloaded id=dd06c79dd17e18df status=200 dur=586.166µs
+t=2023-06-06T23:09:20-0400 lvl=info msg=end pg=/grpc/agent.Web/State id=283ed40d85bb258f status=200 dur=1m53.719192167s
+t=2023-06-06T23:16:02-0400 lvl=info msg="join connections" obj=join id=90057cb36982 l=127.0.0.1:8002 r=74.58.79.12:55712
+t=2023-06-06T23:18:07-0400 lvl=info msg="join connections" obj=join id=0a9f273b6094 l=127.0.0.1:8002 r=[2607:fa49:d945:5300:39b2:bf2:7009:c28e]:56227
+t=2023-06-06T23:25:21-0400 lvl=info msg="join connections" obj=join id=e56b20abbd9c l=127.0.0.1:8002 r=[2607:fa49:d945:5300:39b2:bf2:7009:c28e]:57986
+t=2023-06-06T23:25:51-0400 lvl=info msg="join connections" obj=join id=26529d6eca03 l=127.0.0.1:8002 r=[2607:fa49:d945:5300:39b2:bf2:7009:c28e]:58111
+t=2023-06-06T23:28:55-0400 lvl=info msg="join connections" obj=join id=94b876c3f63d l=127.0.0.1:8002 r=[2607:fa49:d945:5300:39b2:bf2:7009:c28e]:58870
+t=2023-06-06T23:34:40-0400 lvl=info msg="join connections" obj=join id=5f56e396f2ab l=127.0.0.1:8002 r=[2607:fa49:d945:5300:39b2:bf2:7009:c28e]:60263
+t=2023-06-06T23:45:15-0400 lvl=info msg="join connections" obj=join id=cc97c842cca1 l=127.0.0.1:8002 r=[2607:fa49:d945:5300:39b2:bf2:7009:c28e]:62852
+t=2023-06-06T23:46:47-0400 lvl=info msg="join connections" obj=join id=0f3eea63832d l=127.0.0.1:8002 r=[2607:fa49:d945:5300:39b2:bf2:7009:c28e]:63235
+t=2023-06-06T23:47:06-0400 lvl=info msg="join connections" obj=join id=262a6c141a94 l=127.0.0.1:8002 r=[2607:fa49:d945:5300:39b2:bf2:7009:c28e]:63314
+t=2023-06-06T23:47:54-0400 lvl=info msg="join connections" obj=join id=9cc4d8ad94bf l=127.0.0.1:8002 r=[2607:fa49:d945:5300:39b2:bf2:7009:c28e]:63509
+t=2023-06-06T23:48:50-0400 lvl=info msg="join connections" obj=join id=ea67bd84bae6 l=127.0.0.1:8002 r=[2607:fa49:d945:5300:39b2:bf2:7009:c28e]:63766
+t=2023-06-06T23:50:12-0400 lvl=info msg="join connections" obj=join id=5b08d5393f9e l=127.0.0.1:8002 r=[2607:fa49:d945:5300:39b2:bf2:7009:c28e]:64140
+t=2023-06-06T23:50:31-0400 lvl=info msg="join connections" obj=join id=8b48cefcc46b l=127.0.0.1:8002 r=[2607:fa49:d945:5300:39b2:bf2:7009:c28e]:64219
+t=2023-06-06T23:50:55-0400 lvl=info msg="join connections" obj=join id=bbaa046eb65f l=127.0.0.1:8002 r=[2607:fa49:d945:5300:39b2:bf2:7009:c28e]:64320
+t=2023-06-06T23:52:20-0400 lvl=info msg="join connections" obj=join id=85c17f6ce4c7 l=127.0.0.1:8002 r=[2607:fa49:d945:5300:39b2:bf2:7009:c28e]:64702
+t=2023-06-06T23:52:31-0400 lvl=info msg="join connections" obj=join id=c877196e1876 l=127.0.0.1:8002 r=[2607:fa49:d945:5300:39b2:bf2:7009:c28e]:64751
+t=2023-06-06T23:56:22-0400 lvl=info msg="join connections" obj=join id=12bfe7f177a4 l=127.0.0.1:8002 r=[2607:fa49:d945:5300:39b2:bf2:7009:c28e]:49351
+t=2023-06-06T23:57:38-0400 lvl=info msg="join connections" obj=join id=c68543054a29 l=127.0.0.1:8002 r=[2607:fa49:d945:5300:39b2:bf2:7009:c28e]:49662
+t=2023-06-06T23:58:41-0400 lvl=info msg="join connections" obj=join id=25a5689a13c7 l=127.0.0.1:8002 r=[2607:fa49:d945:5300:39b2:bf2:7009:c28e]:49922
+t=2023-06-06T23:58:57-0400 lvl=info msg="join connections" obj=join id=a7874ca760b0 l=127.0.0.1:8002 r=[2607:fa49:d945:5300:39b2:bf2:7009:c28e]:49989
+t=2023-06-07T00:01:13-0400 lvl=info msg="join connections" obj=join id=cdee946633e2 l=127.0.0.1:8002 r=[2607:fa49:d945:5300:39b2:bf2:7009:c28e]:50540
+t=2023-06-07T00:55:05-0400 lvl=info msg=end pg=/grpc/agent.Web/State id=ba824085b98a6ab9 status=200 dur=3h54m5.528217584s
+t=2023-06-07T00:55:05-0400 lvl=info msg=end pg=/grpc/agent.Web/State id=3e0b20e0abdc2e2b status=200 dur=1h45m45.233141166s

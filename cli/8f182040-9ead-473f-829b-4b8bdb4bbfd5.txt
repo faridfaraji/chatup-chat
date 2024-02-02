@@ -1,0 +1,7 @@
+
+USER: hi 
+AI: Hello! How can I assist you today?
+USER: do u sell that? 
+AI: Hello! Thank you for reaching out to us. Could you please specify which product or item you are referring to? I'll be happy to assist you further once I have more information. If you have any other questions or concerns, please feel free to contact us directly.
+USER:  
+AI: 

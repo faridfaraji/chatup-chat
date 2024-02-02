@@ -1,0 +1,5 @@
+
+USER: hi 
+AI: Hello! How can I assist you today?
+USER: so i need new stuff 
+AI: Of course! I'd be happy to help you find new items. Could you please let me know what type of products you are looking for?

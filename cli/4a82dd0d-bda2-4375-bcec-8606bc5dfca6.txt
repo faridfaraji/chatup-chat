@@ -1,0 +1,13 @@
+
+USER: hi 
+AI: Hello! How can I assist you today?
+USER: i need to return something 
+AI: I'm sorry to hear that you need to return something. Could you please provide me with some more details about your purchase? Specifically, could you let me know the reason for the return and the item you would like to return? This will help me assist you better with the return process.
+USER: its a gift card 
+AI: I understand that you would like to return a gift card. Unfortunately, we do not accept returns for gift cards. Gift cards are non-refundable and cannot be exchanged for cash. I apologize for any inconvenience this may cause. Is there anything else I can assist you with?
+USER: but its not even opened 
+AI: I apologize for any confusion. If the gift card has not been used or activated, we may be able to assist you with a return. Please contact us at rasoul1377@gmail.com with your order details and the reason for the return. Our customer support team will review your request and provide further instructions. Thank you for bringing this to our attention, and we appreciate your understanding.
+USER:  
+AI: 
+USER:  
+AI: 

@@ -1,0 +1,9 @@
+
+USER: hhi 
+AI: Hello! How can I assist you today?
+USER: i have some sales questions 
+AI: Hello! How can I assist you with your sales questions? Please let me know what specific information you are looking for, and I'll do my best to help you.
+USER: do you sell milk? 
+AI: I don't have enough information to answer this. Please contact us directly for further assistance.
+USER: do you have any beauty products i can buy? 
+AI: I don't have enough information to answer this. Please contact us directly for more details about the products we sell.

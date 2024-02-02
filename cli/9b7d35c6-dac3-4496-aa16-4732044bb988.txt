@@ -1,0 +1,19 @@
+
+USER: hi 
+AI: General
+USER: what do you sell? 
+AI: Products
+USER: how can i return my product? 
+AI: Policies
+USER: can i book an appointment? 
+AI: Services
+USER: is this website trustworthy? 
+AI: General
+USER: are your products legit? 
+AI: General
+USER: how much is your cheapest product? 
+AI: Products
+USER: where can i find a link to your snowboards? 
+AI: Products
+USER: exit 
+AI: 

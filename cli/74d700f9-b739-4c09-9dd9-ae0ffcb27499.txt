@@ -1,0 +1,7 @@
+
+USER: i need to track my order 
+AI: Hello! I'd be happy to help you track your order. Could you please provide me with your order number?
+USER: 1005 
+AI: Thank you for providing your order number. I apologize, but I couldn't find any information regarding order number 1005 in our system. It's possible that the order hasn't been processed yet or there might be a mistake in the order number. 
+
+To assist you further, could you please provide me with the email address or the name associated with the order? This will help me locate your order and provide you with the tracking information.

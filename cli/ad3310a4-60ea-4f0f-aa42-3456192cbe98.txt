@@ -1,0 +1,7 @@
+
+USER: hi 
+AI: Hello! How can I assist you today?
+USER: I need new stuffs 
+AI: Hello! Thank you for reaching out. I'd be happy to assist you with finding new items. Could you please provide me with more details about what you're looking for? Are you interested in a specific category of products or do you have any preferences in mind? Let me know so I can help you better. If you have any other questions or concerns, please feel free to contact us directly.
+USER: some food 
+AI: Hello! How can I assist you today? Are you looking for new food items or do you have any specific products in mind? Let me know how I can help you with your shopping needs. If you have any further questions or concerns, please feel free to contact us directly.

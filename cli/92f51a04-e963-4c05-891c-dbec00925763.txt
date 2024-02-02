@@ -1,0 +1,17 @@
+
+USER: hi 
+AI: Hello! How can I assist you today?
+USER: i need new stuff 
+AI: Hello! Thank you for reaching out. I'd be happy to assist you in finding new items. Could you please provide me with more details about what you're looking for? Are you interested in a specific category of products or do you have any preferences in mind? Let me know, and I'll do my best to help you find what you need!
+USER: desk 
+AI: Hello! How can I assist you today? Are you looking for a new snowboard?
+USER: yes im looking for a desk 
+AI: Hello! I'm here to assist you with your desk search. What type of desk are you looking for? Do you have any specific requirements or preferences? Let me know so I can help you find the perfect desk for your needs.
+USER: can you help me track my order? 
+AI: Sure, I can help you track your order. Please provide me with your order number.
+USER: 1005 
+AI: I apologize for the confusion, but I couldn't find any information about your order with the order number 1005.
+USER: exit 
+AI: 
+USER: exit 
+AI: 

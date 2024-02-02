@@ -1,0 +1,27 @@
+
+USER: hi 
+AI: Hello! How can I assist you today?
+USER: i have some questions 
+AI: Of course! I'm here to help. What questions do you have?
+USER: I want to track my order 
+AI: Sure, I can help with that. Could you please provide me with your order number?
+USER: 1007 
+AI: Thank you for providing your order number. You can track the status of your order by clicking on the following link: [Track Order 1007](https://chatup-demo.myshopify.com/78988706084/orders/553ec6124d11d63fae50491614769a95/authenticate?key=343f74cecf2ceb2d420cd1828283ff77)
+USER: What do you sell? 
+AI: We sell a variety of products, including accessories, sports equipment, and winter gear. Is there something specific you're looking for?
+USER: I need new shoes 
+AI: Great! We have a wide selection of shoes available. What type of shoes are you looking for? Are you interested in athletic shoes, casual shoes, or something else?
+USER: big shoes 
+AI: Certainly! We have a range of shoes available in larger sizes. Could you please provide me with your shoe size so that I can assist you better?
+USER: give me some recommendations, not so expensive 
+AI: Certainly! Here are a few affordable shoe options in larger sizes:
+
+1. [Men's Running Shoes](https://chatup-demo.myshopify.com/products/mens-running-shoes) - These shoes are designed for comfort and support during running or other athletic activities. They come in various sizes and are reasonably priced.
+
+2. [Women's Casual Sneakers](https://chatup-demo.myshopify.com/products/womens-casual-sneakers) - These sneakers are perfect for everyday wear and are available in larger sizes. They offer both style and comfort at an affordable price.
+
+3. [Men's Hiking Boots](https://chatup-demo.myshopify.com/products/mens-hiking-boots) - If you're looking for outdoor footwear, these hiking boots are a great option. They provide durability and traction while being budget-friendly.
+
+4. [Women's Slip-On Shoes](https://chatup-demo.myshopify.com/products/womens-slip-on-shoes) - These slip-on shoes are easy to wear and versatile. They come in larger sizes and are priced affordably.
+
+Please note that availability may vary, so make sure to check the product pages for the most up-to-date information. Let me know if you need any further assistance!

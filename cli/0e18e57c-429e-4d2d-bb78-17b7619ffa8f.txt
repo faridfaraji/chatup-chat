@@ -1,0 +1,13 @@
+
+USER: hi 
+AI: 
+USER: I have some health issues 
+AI: I'm sorry to hear about your health issues. I'm unable to provide medical advice, but I can assist with any questions about our online store. Please consult a healthcare professional for your health concerns. If you need help with your orders or account, feel free to ask.
+USER: I need some new things 
+AI: Sure, I can assist you with that. Could you please specify what type of items you are looking for?
+USER:  
+AI: 
+USER:  
+AI: 
+USER: exit 
+AI: 

@@ -1,0 +1,7 @@
+
+USER: wat verkoop je 
+AI: Hallo! We verkopen een breed scala aan producten, waaronder elektronica. Onze productcategorieën omvatten onder andere computers, laptops, mobiele telefoons, accessoires en nog veel meer. Als je specifieke producten zoekt, laat het me dan weten en ik help je graag verder!
+USER: ik wil graag mijn bestelling volgen 
+AI: Natuurlijk! Ik help je graag met het volgen van je bestelling. Om je bestelling te kunnen volgen, heb ik wat informatie nodig. Kun je me het bestelnummer geven? Met dat nummer kan ik de status van je bestelling voor je controleren.
+USER: 1005 
+AI: Bedankt voor het verstrekken van het bestelnummer. Ik ga het meteen voor je controleren. Geef me even een moment, alsjeblieft. 

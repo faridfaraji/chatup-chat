@@ -1,0 +1,5 @@
+
+USER: hi 
+AI: Hello! How can I assist you today?
+USER: exit 
+AI: 

@@ -1,0 +1,7 @@
+
+USER: hi 
+AI: 
+USER: hi 
+AI: I don't have enough information to answer that. Please contact the store for further assistance.
+USER: exit 
+AI: 

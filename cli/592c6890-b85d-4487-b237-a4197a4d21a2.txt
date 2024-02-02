@@ -1,0 +1,7 @@
+
+USER: hi 
+AI: Hello! How can I assist you today?
+USER: i need new shirt 
+AI: I'm sorry for any inconvenience, but as an AI, I don't have the ability to assist with shopping or make recommendations. However, you can visit our online store to browse through our wide selection of shirts. If you need help with something else, such as order inquiries or technical issues, feel free to ask!
+USER: what products do you sell? 
+AI: We sell a variety of products, but one of our featured items is the Selling Plans Ski Wax. It's a great accessory for winter sports. You can find more information about this product on our website [here](chatup-demo.myshopify.com/products/selling-plans-ski-wax). If you have any other questions or need further assistance, feel free to ask!

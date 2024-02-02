@@ -1,0 +1,9 @@
+
+USER: hi 
+AI: Hello! How can I assist you today?
+USER: I need to track my order 
+AI: Sure, I can assist you. Please share your order number.
+USER: 1005 
+AI: Thank you for providing your order number. You can track your order status via this link: [Track Order 1005](https://chatup-demo.myshopify.com/78988706084/orders/87132fe12a861d2cec630615d66c7993/authenticate?key=fdb96a32ad73834362d1434a756cd214). Any other questions, feel free to ask.
+USER:  
+AI: 

@@ -1,0 +1,13 @@
+
+USER: hi 
+AI: Hello! How can I assist you today?
+USER: i need assistance 
+AI: Of course! I'm here to help. What do you need assistance with?
+USER: do you sell shoes? 
+AI: I apologize for any confusion, but I don't have enough information to provide a correct response. Please contact us directly for further assistance.
+USER: give me some lotion recoomendations 
+AI: Of course! I'd be happy to help you with lotion recommendations. Could you please let me know what specific type of lotion you are looking for? For example, are you interested in body lotion, face lotion, or a specific brand?
+USER: something for men 
+AI: I don't have enough information to answer this. Please contact us directly for further assistance.
+USER: exit 
+AI: 

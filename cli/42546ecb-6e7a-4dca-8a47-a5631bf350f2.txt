@@ -1,0 +1,11 @@
+
+USER: hi 
+AI: Hello! How can I assist you today?
+USER: i need help 
+AI: Of course! I'm here to help. What do you need assistance with?
+USER: i want to talk to your manager 
+AI: I apologize for any inconvenience you may have experienced. As an AI support agent, I'm here to assist you. If you have any concerns or issues, please let me know, and I'll do my best to help you. Is there something specific you would like assistance with?
+USER: I want to track my order 
+AI: 
+USER: exit 
+AI: 

@@ -1,0 +1,13 @@
+
+USER: hi 
+AI: Hello! How can I assist you today?
+USER: i need new things 
+AI: 
+USER: hi 
+AI: Hello! How can I assist you today?
+USER: hi 
+AI: Hello! How can I assist you today?
+USER: whats going on 
+AI: Hello! How can I assist you today?
+USER: i need milk 
+AI: I'm sorry, but we don't sell milk. Our store specializes in Health & Beauty products. Is there anything else I can help you with?

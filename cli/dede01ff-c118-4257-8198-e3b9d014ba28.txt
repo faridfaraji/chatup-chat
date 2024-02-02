@@ -1,0 +1,11 @@
+
+USER: hi 
+AI: Hello! How can I assist you today?
+USER: I need new stuff 
+AI: Of course! We have a wide range of products available. Could you please let me know what specific items you are looking for? That way, I can help you find the perfect new stuff for you.
+USER: i need to track my order 
+AI: I'd be happy to help you track your order! Could you please provide me with your order number? With that information, I can check the status of your order and provide you with the necessary details.
+USER: 1005 
+AI: Thank you for providing your order number. Let me check the status of your order for you. Please give me a moment.
+USER: exit 
+AI: 

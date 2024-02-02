@@ -1,0 +1,7 @@
+
+USER: hi 
+AI: Hello! How can I assist you today?
+USER: i need new shirts 
+AI: 
+USER: exit 
+AI: 

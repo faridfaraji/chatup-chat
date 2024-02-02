@@ -1,0 +1,17 @@
+
+USER: hi 
+AI: Hello! How can I assist you today?
+USER: I need some new stuffs 
+AI: I don't have enough information to answer this. Please contact us directly for further assistance.
+USER:  
+AI: 
+USER:  
+AI: 
+USER:  
+AI: 
+USER:  
+AI: 
+USER: exitr 
+AI: 
+USER: exit 
+AI: 

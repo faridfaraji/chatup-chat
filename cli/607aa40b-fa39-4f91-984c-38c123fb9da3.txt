@@ -1,0 +1,7 @@
+
+USER: hi 
+AI: Hello! How can I assist you today?
+USER: I need new stuffs 
+AI: Hello! Thank you for reaching out. I'd be happy to assist you with finding new items. Could you please provide me with more details about what you're looking for? Are you interested in a specific category of products or do you have any preferences in mind? Let me know so I can help you better!
+
+Please note that our return policy allows for returns of defective, damaged, or wrong items. However, certain items cannot be returned, such as perishable goods, custom products, personal care goods, hazardous materials, flammable liquids, gases, sale items, or gift cards. If you have any questions or concerns about your specific item, please feel free to contact us.

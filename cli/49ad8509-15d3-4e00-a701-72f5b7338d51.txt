@@ -1,0 +1,5 @@
+
+USER: waar is mijn bestelling? 
+AI: Ik begrijp dat u graag wilt weten waar uw bestelling is. Helaas, als een AI-ondersteuningsagent, heb ik geen toegang tot persoonlijke bestelinformatie. Ik raad u aan om rechtstreeks contact op te nemen met de winkel voor bijgewerkte informatie over uw bestelling.
+USER: exit 
+AI: 

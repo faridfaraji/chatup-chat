@@ -1,0 +1,7 @@
+
+USER: hi 
+AI: Hello! How can I assist you today?
+USER: I need to track my order 
+AI: I can help you with that. Could you please provide me with your order number?
+USER: 1005 
+AI: Thank you for providing your order number. Let me check the status of your order for you. Please give me a moment.
