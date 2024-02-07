@@ -1,2 +1,9 @@
 database:
-  host: "http://localhost:8000"
+  host: "http://db-api"
+  port: "80"
+chat_analytics:
+  host: "http://chat-analytics"
+  port: "80"
+redis_cluster:
+  url: "redis.internal.awesoon.tech"
+  port: "6379"

@@ -1,4 +1,6 @@
 database:
-  port: "8000"
+  port: "8002"
   api_version: "v1"
-web_url: "http://localhost:8000"
+chat_analytics:
+  port: "8005"
+  api_version: "v1"

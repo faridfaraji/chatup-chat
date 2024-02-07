@@ -1,0 +1,9 @@
+*ngrok*
+*pyc*
+*.vscode*
+*playground.py*
+*dump.rdb*
+*.pyc*
+*.txt
+*cli*
+.env

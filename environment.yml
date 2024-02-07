@@ -12,13 +12,18 @@ dependencies:
   - pip
   - pytest
   - python=3.10
+  - python-dotenv
   - requests
   - werkzeug=2.1.2
+  - tiktoken
   - click
   - pip:
       - pytest-cov
       - gevent-websocket
       - flask-socketio
       - flask-cors
+      - funcy
+      - redis
       - tox-conda
+      - ShopifyAPI
       - git+https://github.com/korbit-ai/python-config-probe.git
